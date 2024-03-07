@@ -1,1 +1,1 @@
-Example project that shows how you might use the FuncGodot entity definition system and build process to connect TrenchBroom to Godot.
+Example FuncGodot project that shows how you might design entities for use in the TrenchBroom to Godot pipeline.
