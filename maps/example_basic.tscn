@@ -1,0 +1,263 @@
+[gd_scene load_steps=25 format=3 uid="uid://bbhji8qxm5hpx"]
+
+[ext_resource type="Script" path="res://addons/func_godot/src/map/func_godot_map.gd" id="1_123pv"]
+[ext_resource type="Resource" uid="uid://cnci07xmp76ix" path="res://tb/map_settings.tres" id="2_ra3tx"]
+[ext_resource type="PackedScene" uid="uid://bi51vakf1lv8k" path="res://entities/actors/marsfrog/marsfrog.tscn" id="4_4n4xy"]
+[ext_resource type="Texture2D" uid="uid://dhf77ycwlwn8v" path="res://tb/textures/mars/mars_cave0.png" id="5_floj3"]
+[ext_resource type="Script" path="res://entities/info_camera.gd" id="5_m03ov"]
+[ext_resource type="Texture2D" uid="uid://nqfowh2e6lpu" path="res://tb/textures/mars/mars_sand0.png" id="6_yxgs8"]
+[ext_resource type="Script" path="res://entities/lights/light_omni.gd" id="7_fuf5a"]
+[ext_resource type="Script" path="res://entities/funcs/func_move.gd" id="8_mgvhw"]
+[ext_resource type="Texture2D" uid="uid://p3musw6m37lw" path="res://tb/textures/mars/mars_cliff0.png" id="9_a7dih"]
+[ext_resource type="Script" path="res://entities/triggers/trigger_area.gd" id="10_70cxx"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jcn5n"]
+albedo_texture = ExtResource("9_a7dih")
+metallic_specular = 0.0
+texture_filter = 2
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_d3oed"]
+_surfaces = [{
+"aabb": AABB(-1, -1.25, -0.5, 2, 2.50001, 1),
+"attribute_data": PackedByteArray(0, 0, 0, 0, 0, 0, 192, 190, 0, 0, 0, 0, 0, 0, 128, 189, 0, 0, 128, 190, 0, 0, 128, 189, 0, 0, 128, 190, 0, 0, 192, 190, 0, 0, 0, 62, 0, 0, 192, 190, 0, 0, 128, 62, 0, 0, 192, 190, 0, 0, 128, 62, 0, 0, 128, 189, 0, 0, 0, 62, 0, 0, 128, 189, 0, 0, 0, 190, 0, 0, 128, 190, 0, 0, 0, 190, 0, 0, 0, 0, 0, 0, 128, 190, 0, 0, 0, 0, 0, 0, 128, 190, 0, 0, 128, 190, 0, 0, 0, 62, 0, 0, 128, 190, 0, 0, 128, 62, 0, 0, 128, 190, 0, 0, 128, 62, 0, 0, 0, 0, 0, 0, 0, 62, 0, 0, 0, 0, 0, 0, 0, 190, 0, 0, 192, 190, 0, 0, 0, 190, 0, 0, 128, 189, 0, 0, 128, 190, 0, 0, 128, 189, 0, 0, 128, 190, 0, 0, 192, 190, 0, 0, 0, 0, 0, 0, 192, 190, 0, 0, 128, 62, 0, 0, 192, 190, 0, 0, 128, 62, 0, 0, 128, 189, 0, 0, 0, 0, 0, 0, 128, 189),
+"format": 34359742487,
+"index_count": 36,
+"index_data": PackedByteArray(0, 0, 1, 0, 2, 0, 0, 0, 2, 0, 3, 0, 4, 0, 5, 0, 6, 0, 4, 0, 6, 0, 7, 0, 8, 0, 9, 0, 10, 0, 8, 0, 10, 0, 11, 0, 12, 0, 13, 0, 14, 0, 12, 0, 14, 0, 15, 0, 16, 0, 17, 0, 18, 0, 16, 0, 18, 0, 19, 0, 20, 0, 21, 0, 22, 0, 20, 0, 22, 0, 23, 0),
+"material": SubResource("StandardMaterial3D_jcn5n"),
+"name": "mars/mars_cliff0",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 24,
+"vertex_data": PackedByteArray(0, 0, 128, 191, 0, 0, 160, 63, 0, 0, 0, 191, 0, 0, 128, 191, 0, 0, 160, 191, 0, 0, 0, 191, 0, 0, 128, 63, 0, 0, 160, 191, 0, 0, 0, 191, 0, 0, 128, 63, 0, 0, 160, 63, 0, 0, 0, 191, 0, 0, 128, 191, 0, 0, 160, 63, 0, 0, 0, 191, 0, 0, 128, 191, 0, 0, 160, 63, 0, 0, 0, 63, 0, 0, 128, 191, 0, 0, 160, 191, 0, 0, 0, 63, 0, 0, 128, 191, 0, 0, 160, 191, 0, 0, 0, 191, 0, 0, 128, 63, 0, 0, 160, 191, 0, 0, 0, 191, 0, 0, 128, 191, 0, 0, 160, 191, 0, 0, 0, 191, 0, 0, 128, 191, 0, 0, 160, 191, 0, 0, 0, 63, 0, 0, 128, 63, 0, 0, 160, 191, 0, 0, 0, 63, 0, 0, 128, 63, 0, 0, 160, 63, 0, 0, 0, 191, 0, 0, 128, 63, 0, 0, 160, 63, 0, 0, 0, 63, 0, 0, 128, 191, 0, 0, 160, 63, 0, 0, 0, 63, 0, 0, 128, 191, 0, 0, 160, 63, 0, 0, 0, 191, 0, 0, 128, 63, 0, 0, 160, 63, 0, 0, 0, 191, 0, 0, 128, 63, 0, 0, 160, 191, 0, 0, 0, 191, 0, 0, 128, 63, 0, 0, 160, 191, 0, 0, 0, 63, 0, 0, 128, 63, 0, 0, 160, 63, 0, 0, 0, 63, 0, 0, 128, 191, 0, 0, 160, 63, 0, 0, 0, 63, 0, 0, 128, 63, 0, 0, 160, 63, 0, 0, 0, 63, 0, 0, 128, 63, 0, 0, 160, 191, 0, 0, 0, 63, 0, 0, 128, 191, 0, 0, 160, 191, 0, 0, 0, 63, 255, 255, 255, 255, 0, 0, 255, 191, 255, 255, 255, 255, 0, 0, 255, 191, 255, 255, 255, 255, 0, 0, 255, 191, 255, 255, 255, 255, 0, 0, 255, 191, 0, 0, 255, 127, 255, 127, 255, 191, 0, 0, 255, 127, 255, 127, 255, 191, 0, 0, 255, 127, 255, 127, 255, 191, 0, 0, 255, 127, 255, 127, 255, 191, 255, 127, 0, 0, 255, 255, 255, 255, 255, 127, 0, 0, 255, 255, 255, 255, 255, 127, 0, 0, 255, 255, 255, 255, 255, 127, 0, 0, 255, 255, 255, 255, 255, 127, 255, 255, 255, 127, 255, 191, 255, 127, 255, 255, 255, 127, 255, 191, 255, 127, 255, 255, 255, 127, 255, 191, 255, 127, 255, 255, 255, 127, 255, 191, 255, 255, 255, 127, 255, 255, 255, 255, 255, 255, 255, 127, 255, 255, 255, 255, 255, 255, 255, 127, 255, 255, 255, 255, 255, 255, 255, 127, 255, 255, 255, 255, 255, 127, 255, 127, 255, 255, 255, 191, 255, 127, 255, 127, 255, 255, 255, 191, 255, 127, 255, 127, 255, 255, 255, 191, 255, 127, 255, 127, 255, 255, 255, 191)
+}]
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_qpxdb"]
+data = PackedVector3Array(-1, 1.25, -0.5, -1, -1.25, -0.5, 1, -1.25, -0.5, -1, 1.25, -0.5, 1, -1.25, -0.5, 1, 1.25, -0.5, -1, 1.25, -0.5, -1, 1.25, 0.5, -1, -1.25, 0.5, -1, 1.25, -0.5, -1, -1.25, 0.5, -1, -1.25, -0.5, 1, -1.25, -0.5, -1, -1.25, -0.5, -1, -1.25, 0.5, 1, -1.25, -0.5, -1, -1.25, 0.5, 1, -1.25, 0.5, 1, 1.25, -0.5, 1, 1.25, 0.5, -1, 1.25, 0.5, 1, 1.25, -0.5, -1, 1.25, 0.5, -1, 1.25, -0.5, 1, 1.25, -0.5, 1, -1.25, -0.5, 1, -1.25, 0.5, 1, 1.25, -0.5, 1, -1.25, 0.5, 1, 1.25, 0.5, -1, 1.25, 0.5, 1, 1.25, 0.5, 1, -1.25, 0.5, -1, 1.25, 0.5, 1, -1.25, 0.5, -1, -1.25, 0.5)
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_7bggn"]
+_surfaces = [{
+"aabb": AABB(-1, -1.25, -0.5, 2, 2.50001, 1),
+"attribute_data": PackedByteArray(0, 0, 128, 62, 0, 0, 192, 190, 0, 0, 128, 62, 0, 0, 128, 189, 0, 0, 0, 0, 0, 0, 128, 189, 0, 0, 0, 0, 0, 0, 192, 190, 0, 0, 0, 62, 0, 0, 192, 190, 0, 0, 128, 62, 0, 0, 192, 190, 0, 0, 128, 62, 0, 0, 128, 189, 0, 0, 0, 62, 0, 0, 128, 189, 0, 0, 0, 190, 0, 0, 0, 0, 0, 0, 0, 190, 0, 0, 128, 62, 0, 0, 128, 190, 0, 0, 128, 62, 0, 0, 128, 190, 0, 0, 0, 0, 0, 0, 0, 62, 0, 0, 0, 0, 0, 0, 128, 62, 0, 0, 0, 0, 0, 0, 128, 62, 0, 0, 128, 62, 0, 0, 0, 62, 0, 0, 128, 62, 0, 0, 0, 62, 0, 0, 192, 190, 0, 0, 0, 62, 0, 0, 128, 189, 0, 0, 128, 62, 0, 0, 128, 189, 0, 0, 128, 62, 0, 0, 192, 190, 0, 0, 128, 190, 0, 0, 192, 190, 0, 0, 0, 0, 0, 0, 192, 190, 0, 0, 0, 0, 0, 0, 128, 189, 0, 0, 128, 190, 0, 0, 128, 189),
+"format": 34359742487,
+"index_count": 36,
+"index_data": PackedByteArray(0, 0, 1, 0, 2, 0, 0, 0, 2, 0, 3, 0, 4, 0, 5, 0, 6, 0, 4, 0, 6, 0, 7, 0, 8, 0, 9, 0, 10, 0, 8, 0, 10, 0, 11, 0, 12, 0, 13, 0, 14, 0, 12, 0, 14, 0, 15, 0, 16, 0, 17, 0, 18, 0, 16, 0, 18, 0, 19, 0, 20, 0, 21, 0, 22, 0, 20, 0, 22, 0, 23, 0),
+"material": SubResource("StandardMaterial3D_jcn5n"),
+"name": "mars/mars_cliff0",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 24,
+"vertex_data": PackedByteArray(0, 0, 128, 191, 0, 0, 160, 63, 0, 0, 0, 191, 0, 0, 128, 191, 0, 0, 160, 191, 0, 0, 0, 191, 0, 0, 128, 63, 0, 0, 160, 191, 0, 0, 0, 191, 0, 0, 128, 63, 0, 0, 160, 63, 0, 0, 0, 191, 0, 0, 128, 191, 0, 0, 160, 63, 0, 0, 0, 191, 0, 0, 128, 191, 0, 0, 160, 63, 0, 0, 0, 63, 0, 0, 128, 191, 0, 0, 160, 191, 0, 0, 0, 63, 0, 0, 128, 191, 0, 0, 160, 191, 0, 0, 0, 191, 0, 0, 128, 63, 0, 0, 160, 191, 0, 0, 0, 191, 0, 0, 128, 191, 0, 0, 160, 191, 0, 0, 0, 191, 0, 0, 128, 191, 0, 0, 160, 191, 0, 0, 0, 63, 0, 0, 128, 63, 0, 0, 160, 191, 0, 0, 0, 63, 0, 0, 128, 63, 0, 0, 160, 63, 0, 0, 0, 191, 0, 0, 128, 63, 0, 0, 160, 63, 0, 0, 0, 63, 0, 0, 128, 191, 0, 0, 160, 63, 0, 0, 0, 63, 0, 0, 128, 191, 0, 0, 160, 63, 0, 0, 0, 191, 0, 0, 128, 63, 0, 0, 160, 63, 0, 0, 0, 191, 0, 0, 128, 63, 0, 0, 160, 191, 0, 0, 0, 191, 0, 0, 128, 63, 0, 0, 160, 191, 0, 0, 0, 63, 0, 0, 128, 63, 0, 0, 160, 63, 0, 0, 0, 63, 0, 0, 128, 191, 0, 0, 160, 63, 0, 0, 0, 63, 0, 0, 128, 63, 0, 0, 160, 63, 0, 0, 0, 63, 0, 0, 128, 63, 0, 0, 160, 191, 0, 0, 0, 63, 0, 0, 128, 191, 0, 0, 160, 191, 0, 0, 0, 63, 255, 255, 255, 255, 0, 0, 255, 191, 255, 255, 255, 255, 0, 0, 255, 191, 255, 255, 255, 255, 0, 0, 255, 191, 255, 255, 255, 255, 0, 0, 255, 191, 0, 0, 255, 127, 255, 127, 255, 191, 0, 0, 255, 127, 255, 127, 255, 191, 0, 0, 255, 127, 255, 127, 255, 191, 0, 0, 255, 127, 255, 127, 255, 191, 255, 127, 0, 0, 255, 255, 255, 255, 255, 127, 0, 0, 255, 255, 255, 255, 255, 127, 0, 0, 255, 255, 255, 255, 255, 127, 0, 0, 255, 255, 255, 255, 255, 127, 255, 255, 255, 127, 255, 191, 255, 127, 255, 255, 255, 127, 255, 191, 255, 127, 255, 255, 255, 127, 255, 191, 255, 127, 255, 255, 255, 127, 255, 191, 255, 255, 255, 127, 255, 127, 255, 63, 255, 255, 255, 127, 255, 127, 255, 63, 255, 255, 255, 127, 255, 127, 255, 63, 255, 255, 255, 127, 255, 127, 255, 63, 255, 127, 255, 127, 255, 255, 255, 191, 255, 127, 255, 127, 255, 255, 255, 191, 255, 127, 255, 127, 255, 255, 255, 191, 255, 127, 255, 127, 255, 255, 255, 191)
+}]
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_s8hwp"]
+data = PackedVector3Array(-1, 1.25, -0.5, -1, -1.25, -0.5, 1, -1.25, -0.5, -1, 1.25, -0.5, 1, -1.25, -0.5, 1, 1.25, -0.5, -1, 1.25, -0.5, -1, 1.25, 0.5, -1, -1.25, 0.5, -1, 1.25, -0.5, -1, -1.25, 0.5, -1, -1.25, -0.5, 1, -1.25, -0.5, -1, -1.25, -0.5, -1, -1.25, 0.5, 1, -1.25, -0.5, -1, -1.25, 0.5, 1, -1.25, 0.5, 1, 1.25, -0.5, 1, 1.25, 0.5, -1, 1.25, 0.5, 1, 1.25, -0.5, -1, 1.25, 0.5, -1, 1.25, -0.5, 1, 1.25, -0.5, 1, -1.25, -0.5, 1, -1.25, 0.5, 1, 1.25, -0.5, 1, -1.25, 0.5, 1, 1.25, 0.5, -1, 1.25, 0.5, 1, 1.25, 0.5, 1, -1.25, 0.5, -1, 1.25, 0.5, 1, -1.25, 0.5, -1, -1.25, 0.5)
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_gjtgs"]
+points = PackedVector3Array(-2, 0.75, -0.5, -2, -0.75, -0.5, 2, -0.75, -0.5, 2, 0.75, -0.5, -2, 0.75, 0.5, -2, -0.75, 0.5, 2, -0.75, 0.5, 2, 0.75, 0.5)
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_c6g1j"]
+points = PackedVector3Array(-2, 0.75, -0.5, -2, -0.75, -0.5, 2, -0.75, -0.5, 2, 0.75, -0.5, -2, 0.75, 0.5, -2, -0.75, 0.5, 2, -0.75, 0.5, 2, 0.75, 0.5)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wrwg5"]
+albedo_texture = ExtResource("5_floj3")
+metallic_specular = 0.0
+texture_filter = 2
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_p4y0p"]
+albedo_texture = ExtResource("6_yxgs8")
+metallic_specular = 0.0
+texture_filter = 2
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_6vcgy"]
+_surfaces = [{
+"aabb": AABB(-2, -0.8125, -2.125, 4, 2.50001, 6),
+"attribute_data": PackedByteArray(0, 0, 128, 191, 0, 0, 0, 191, 0, 0, 128, 191, 0, 0, 0, 62, 0, 0, 0, 63, 0, 0, 0, 62, 0, 0, 0, 63, 0, 0, 0, 191, 0, 0, 128, 191, 0, 0, 0, 191, 0, 0, 0, 63, 0, 0, 0, 191, 0, 0, 0, 63, 0, 0, 0, 62, 0, 0, 128, 191, 0, 0, 0, 62, 0, 0, 0, 191, 0, 0, 0, 191, 0, 0, 0, 63, 0, 0, 0, 191, 0, 0, 0, 63, 0, 0, 0, 62, 0, 0, 0, 191, 0, 0, 0, 62),
+"format": 34359742487,
+"index_count": 18,
+"index_data": PackedByteArray(0, 0, 1, 0, 2, 0, 0, 0, 2, 0, 3, 0, 4, 0, 5, 0, 6, 0, 4, 0, 6, 0, 7, 0, 8, 0, 9, 0, 10, 0, 8, 0, 10, 0, 11, 0),
+"material": SubResource("StandardMaterial3D_wrwg5"),
+"name": "mars/mars_cave0",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 12,
+"vertex_data": PackedByteArray(0, 0, 0, 192, 0, 0, 216, 63, 0, 0, 8, 192, 0, 0, 0, 192, 0, 0, 80, 191, 0, 0, 8, 192, 0, 0, 0, 192, 0, 0, 80, 191, 0, 0, 120, 64, 0, 0, 0, 192, 0, 0, 216, 63, 0, 0, 120, 64, 0, 0, 0, 64, 0, 0, 216, 63, 0, 0, 8, 192, 0, 0, 0, 64, 0, 0, 216, 63, 0, 0, 120, 64, 0, 0, 0, 64, 0, 0, 80, 191, 0, 0, 120, 64, 0, 0, 0, 64, 0, 0, 80, 191, 0, 0, 8, 192, 0, 0, 0, 192, 0, 0, 216, 63, 0, 0, 8, 192, 0, 0, 0, 64, 0, 0, 216, 63, 0, 0, 8, 192, 0, 0, 0, 64, 0, 0, 80, 191, 0, 0, 8, 192, 0, 0, 0, 192, 0, 0, 80, 191, 0, 0, 8, 192, 255, 255, 255, 127, 255, 127, 255, 63, 255, 255, 255, 127, 255, 127, 255, 63, 255, 255, 255, 127, 255, 127, 255, 63, 255, 255, 255, 127, 255, 127, 255, 63, 0, 0, 255, 127, 255, 127, 255, 191, 0, 0, 255, 127, 255, 127, 255, 191, 0, 0, 255, 127, 255, 127, 255, 191, 0, 0, 255, 127, 255, 127, 255, 191, 255, 127, 255, 127, 255, 255, 255, 191, 255, 127, 255, 127, 255, 255, 255, 191, 255, 127, 255, 127, 255, 255, 255, 191, 255, 127, 255, 127, 255, 255, 255, 191)
+}, {
+"aabb": AABB(-2, -0.8125, -2.125, 4.00001, 1.00136e-05, 6),
+"attribute_data": PackedByteArray(0, 0, 0, 191, 0, 0, 128, 190, 0, 0, 128, 62, 0, 0, 128, 190, 0, 0, 128, 62, 0, 0, 128, 62, 0, 0, 0, 191, 0, 0, 128, 62),
+"format": 34359742487,
+"index_count": 6,
+"index_data": PackedByteArray(0, 0, 1, 0, 2, 0, 0, 0, 2, 0, 3, 0),
+"material": SubResource("StandardMaterial3D_p4y0p"),
+"name": "mars/mars_sand0",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 4,
+"vertex_data": PackedByteArray(0, 0, 0, 64, 0, 0, 80, 191, 0, 0, 8, 192, 0, 0, 0, 64, 0, 0, 80, 191, 0, 0, 120, 64, 0, 0, 0, 192, 0, 0, 80, 191, 0, 0, 120, 64, 0, 0, 0, 192, 0, 0, 80, 191, 0, 0, 8, 192, 255, 127, 255, 255, 255, 127, 255, 191, 255, 127, 255, 255, 255, 127, 255, 191, 255, 127, 255, 255, 255, 127, 255, 191, 255, 127, 255, 255, 255, 127, 255, 191)
+}]
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_4l52g"]
+data = PackedVector3Array(-2, 1.6875, -2.125, -2, -0.8125, -2.125, -2, -0.8125, 3.875, -2, 1.6875, -2.125, -2, -0.8125, 3.875, -2, 1.6875, 3.875, 2, -0.8125, -2.125, 2, -0.8125, 3.875, -2, -0.8125, 3.875, 2, -0.8125, -2.125, -2, -0.8125, 3.875, -2, -0.8125, -2.125, 2, 1.6875, -2.125, 2, 1.6875, 3.875, 2, -0.8125, 3.875, 2, 1.6875, -2.125, 2, -0.8125, 3.875, 2, -0.8125, -2.125, -2, 1.6875, -2.125, 2, 1.6875, -2.125, 2, -0.8125, -2.125, -2, 1.6875, -2.125, 2, -0.8125, -2.125, -2, -0.8125, -2.125)
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_bip6l"]
+_surfaces = [{
+"aabb": AABB(-4, -0.958333, -2.45833, 8, 2.50001, 6),
+"attribute_data": PackedByteArray(0, 0, 0, 63, 0, 0, 64, 191, 0, 0, 0, 63, 0, 0, 0, 190, 0, 0, 0, 64, 0, 0, 0, 190, 0, 0, 0, 64, 0, 0, 64, 191, 0, 0, 0, 191, 0, 0, 0, 190, 0, 0, 128, 191, 0, 0, 0, 190, 0, 0, 128, 191, 0, 0, 64, 191, 0, 0, 0, 191, 0, 0, 64, 191, 0, 0, 128, 63, 0, 0, 0, 191, 0, 0, 128, 63, 0, 0, 0, 62, 0, 0, 128, 191, 0, 0, 0, 62, 0, 0, 128, 191, 0, 0, 0, 191, 0, 0, 0, 63, 0, 0, 64, 191, 0, 0, 0, 64, 0, 0, 64, 191, 0, 0, 0, 64, 0, 0, 0, 190, 0, 0, 0, 63, 0, 0, 0, 190, 0, 0, 0, 63, 0, 0, 64, 191, 0, 0, 128, 63, 0, 0, 64, 191, 0, 0, 128, 63, 0, 0, 0, 190, 0, 0, 0, 63, 0, 0, 0, 190),
+"format": 34359742487,
+"index_count": 30,
+"index_data": PackedByteArray(0, 0, 1, 0, 2, 0, 0, 0, 2, 0, 3, 0, 4, 0, 5, 0, 6, 0, 4, 0, 6, 0, 7, 0, 8, 0, 9, 0, 10, 0, 8, 0, 10, 0, 11, 0, 12, 0, 13, 0, 14, 0, 12, 0, 14, 0, 15, 0, 16, 0, 17, 0, 18, 0, 16, 0, 18, 0, 19, 0),
+"material": SubResource("StandardMaterial3D_wrwg5"),
+"name": "mars/mars_cave0",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 20,
+"vertex_data": PackedByteArray(0, 0, 128, 192, 85, 85, 197, 63, 86, 85, 29, 192, 0, 0, 128, 192, 86, 85, 117, 191, 86, 85, 29, 192, 0, 0, 128, 192, 86, 85, 117, 191, 170, 170, 98, 64, 0, 0, 128, 192, 85, 85, 197, 63, 170, 170, 98, 64, 0, 0, 0, 192, 86, 85, 117, 191, 86, 85, 29, 192, 0, 0, 128, 192, 86, 85, 117, 191, 86, 85, 29, 192, 0, 0, 128, 192, 85, 85, 197, 63, 86, 85, 29, 192, 0, 0, 0, 192, 85, 85, 197, 63, 86, 85, 29, 192, 0, 0, 128, 192, 85, 85, 197, 63, 170, 170, 98, 64, 0, 0, 128, 192, 86, 85, 117, 191, 170, 170, 98, 64, 0, 0, 128, 64, 86, 85, 117, 191, 170, 170, 98, 64, 0, 0, 128, 64, 85, 85, 197, 63, 170, 170, 98, 64, 0, 0, 128, 64, 85, 85, 197, 63, 86, 85, 29, 192, 0, 0, 128, 64, 85, 85, 197, 63, 170, 170, 98, 64, 0, 0, 128, 64, 86, 85, 117, 191, 170, 170, 98, 64, 0, 0, 128, 64, 86, 85, 117, 191, 86, 85, 29, 192, 0, 0, 0, 64, 85, 85, 197, 63, 86, 85, 29, 192, 0, 0, 128, 64, 85, 85, 197, 63, 86, 85, 29, 192, 0, 0, 128, 64, 86, 85, 117, 191, 86, 85, 29, 192, 0, 0, 0, 64, 86, 85, 117, 191, 86, 85, 29, 192, 255, 255, 255, 127, 255, 127, 255, 63, 255, 255, 255, 127, 255, 127, 255, 63, 255, 255, 255, 127, 255, 127, 255, 63, 255, 255, 255, 127, 255, 127, 255, 63, 255, 127, 255, 127, 255, 255, 255, 191, 255, 127, 255, 127, 255, 255, 255, 191, 255, 127, 255, 127, 255, 255, 255, 191, 255, 127, 255, 127, 255, 255, 255, 191, 255, 255, 255, 255, 0, 0, 255, 191, 255, 255, 255, 255, 0, 0, 255, 191, 255, 255, 255, 255, 0, 0, 255, 191, 255, 255, 255, 255, 0, 0, 255, 191, 0, 0, 255, 127, 255, 127, 255, 191, 0, 0, 255, 127, 255, 127, 255, 191, 0, 0, 255, 127, 255, 127, 255, 191, 0, 0, 255, 127, 255, 127, 255, 191, 255, 127, 255, 127, 255, 255, 255, 191, 255, 127, 255, 127, 255, 255, 255, 191, 255, 127, 255, 127, 255, 255, 255, 191, 255, 127, 255, 127, 255, 255, 255, 191)
+}, {
+"aabb": AABB(-4, -0.958333, -2.45833, 8.00001, 1.00136e-05, 6),
+"attribute_data": PackedByteArray(0, 0, 0, 191, 0, 0, 0, 191, 0, 0, 128, 62, 0, 0, 0, 191, 0, 0, 128, 62, 0, 0, 0, 63, 0, 0, 0, 191, 0, 0, 0, 63),
+"format": 34359742487,
+"index_count": 6,
+"index_data": PackedByteArray(0, 0, 1, 0, 2, 0, 0, 0, 2, 0, 3, 0),
+"material": SubResource("StandardMaterial3D_p4y0p"),
+"name": "mars/mars_sand0",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 4,
+"vertex_data": PackedByteArray(0, 0, 128, 64, 86, 85, 117, 191, 86, 85, 29, 192, 0, 0, 128, 64, 86, 85, 117, 191, 170, 170, 98, 64, 0, 0, 128, 192, 86, 85, 117, 191, 170, 170, 98, 64, 0, 0, 128, 192, 86, 85, 117, 191, 86, 85, 29, 192, 255, 127, 255, 255, 255, 127, 255, 191, 255, 127, 255, 255, 255, 127, 255, 191, 255, 127, 255, 255, 255, 127, 255, 191, 255, 127, 255, 255, 255, 127, 255, 191)
+}]
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_e45hr"]
+data = PackedVector3Array(-4, 1.54167, -2.45833, -4, -0.958333, -2.45833, -4, -0.958333, 3.54167, -4, 1.54167, -2.45833, -4, -0.958333, 3.54167, -4, 1.54167, 3.54167, -2, -0.958333, -2.45833, -4, -0.958333, -2.45833, -4, 1.54167, -2.45833, -2, -0.958333, -2.45833, -4, 1.54167, -2.45833, -2, 1.54167, -2.45833, 4, -0.958333, -2.45833, 4, -0.958333, 3.54167, -4, -0.958333, 3.54167, 4, -0.958333, -2.45833, -4, -0.958333, 3.54167, -4, -0.958333, -2.45833, -4, 1.54167, 3.54167, -4, -0.958333, 3.54167, 4, -0.958333, 3.54167, -4, 1.54167, 3.54167, 4, -0.958333, 3.54167, 4, 1.54167, 3.54167, 4, 1.54167, -2.45833, 4, 1.54167, 3.54167, 4, -0.958333, 3.54167, 4, 1.54167, -2.45833, 4, -0.958333, 3.54167, 4, -0.958333, -2.45833, 2, 1.54167, -2.45833, 4, 1.54167, -2.45833, 4, -0.958333, -2.45833, 2, 1.54167, -2.45833, 4, -0.958333, -2.45833, 2, -0.958333, -2.45833)
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_q36b4"]
+points = PackedVector3Array(-2, 0.75, -0.5, -2, -0.75, -0.5, 2, -0.75, -0.5, 2, 0.75, -0.5, -2, 0.75, 0.5, -2, -0.75, 0.5, 2, -0.75, 0.5, 2, 0.75, 0.5)
+
+[node name="map" type="Node"]
+
+[node name="FuncGodotMap" type="Node3D" parent="."]
+script = ExtResource("1_123pv")
+local_map_file = "res://tb/maps/example_basic.map"
+map_settings = ExtResource("2_ra3tx")
+
+[node name="entity_0_worldspawn" type="Node3D" parent="FuncGodotMap"]
+
+[node name="entity_player" parent="FuncGodotMap" instance=ExtResource("4_4n4xy")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0.5, -2.75)
+flags = 1
+
+[node name="entity_2_info_camera" type="Camera3D" parent="FuncGodotMap" node_paths=PackedStringArray("camera_target")]
+transform = Transform3D(-0.152057, 0.694785, -0.702959, 0, 0.71123, 0.702959, 0.988372, 0.10689, -0.108148, -3.25, 3.75, -3.25)
+current = true
+script = ExtResource("5_m03ov")
+camera_target = NodePath("../entity_player")
+
+[node name="entity_3_light_omni" type="OmniLight3D" parent="FuncGodotMap"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.25, 2, -2)
+omni_range = 10.0
+script = ExtResource("7_fuf5a")
+
+[node name="entity_4_light_omni" type="OmniLight3D" parent="FuncGodotMap"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 5)
+omni_range = 10.0
+script = ExtResource("7_fuf5a")
+
+[node name="entity_5_func_move" type="AnimatableBody3D" parent="FuncGodotMap"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 1.75, 1.5)
+collision_mask = 0
+sync_to_physics = false
+script = ExtResource("8_mgvhw")
+targetname = "door"
+move_pos = Array[Vector3]([Vector3(0, 0, 0), Vector3(1, 0, 0)])
+move_rot = Vector3(0, -1.5708, 0)
+
+[node name="entity_5_mesh_instance" type="MeshInstance3D" parent="FuncGodotMap/entity_5_func_move"]
+mesh = SubResource("ArrayMesh_d3oed")
+
+[node name="entity_5_collision_shape" type="CollisionShape3D" parent="FuncGodotMap/entity_5_func_move"]
+shape = SubResource("ConcavePolygonShape3D_qpxdb")
+
+[node name="entity_6_func_move" type="AnimatableBody3D" parent="FuncGodotMap"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 1.75, 1.5)
+collision_mask = 0
+sync_to_physics = false
+script = ExtResource("8_mgvhw")
+targetname = "door"
+move_pos = Array[Vector3]([Vector3(0, 0, 0), Vector3(-1, 0, 0)])
+move_rot = Vector3(0, 1.5708, 0)
+
+[node name="entity_6_mesh_instance" type="MeshInstance3D" parent="FuncGodotMap/entity_6_func_move"]
+mesh = SubResource("ArrayMesh_7bggn")
+
+[node name="entity_6_collision_shape" type="CollisionShape3D" parent="FuncGodotMap/entity_6_func_move"]
+shape = SubResource("ConcavePolygonShape3D_s8hwp")
+
+[node name="entity_7_trigger_area" type="Area3D" parent="FuncGodotMap"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.75, 0.5)
+collision_layer = 4
+collision_mask = 4
+monitorable = false
+script = ExtResource("10_70cxx")
+target = "door"
+
+[node name="entity_7_brush_0_collision_shape" type="CollisionShape3D" parent="FuncGodotMap/entity_7_trigger_area"]
+shape = SubResource("ConvexPolygonShape3D_gjtgs")
+
+[node name="entity_8_actor_marsfrog" parent="FuncGodotMap" instance=ExtResource("4_4n4xy")]
+transform = Transform3D(0.707107, 0, 0.707107, 0, 1, 0, -0.707107, 0, 0.707107, 1.75, 0.5, 6.75)
+flags = 4
+
+[node name="entity_9_actor_marsfrog" parent="FuncGodotMap" instance=ExtResource("4_4n4xy")]
+transform = Transform3D(2, 0, 3.49691e-07, 0, 2, 0, -3.49691e-07, 0, 2, 0, 0.5, 7.25)
+flags = 2
+
+[node name="entity_10_actor_marsfrog" parent="FuncGodotMap" instance=ExtResource("4_4n4xy")]
+transform = Transform3D(0.866025, 0, -0.5, 0, 1, 0, 0.5, 0, 0.866025, -2.25, 0.5, 6.5)
+flags = 8
+
+[node name="entity_11_info_camera" type="Camera3D" parent="FuncGodotMap" node_paths=PackedStringArray("camera_target")]
+transform = Transform3D(0.743294, -0.291019, 0.602347, 0, 0.900417, 0.435028, -0.668965, -0.323354, 0.669275, 4.5, 3.75, 2.25)
+script = ExtResource("5_m03ov")
+targetname = "camswap"
+camera_target = NodePath("../entity_player")
+
+[node name="entity_12_trigger_area" type="Area3D" parent="FuncGodotMap"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.75, 2.75)
+collision_layer = 4
+collision_mask = 4
+monitorable = false
+script = ExtResource("10_70cxx")
+target = "camswap"
+
+[node name="entity_12_brush_0_collision_shape" type="CollisionShape3D" parent="FuncGodotMap/entity_12_trigger_area"]
+shape = SubResource("ConvexPolygonShape3D_c6g1j")
+
+[node name="entity_13_func_detail" type="StaticBody3D" parent="FuncGodotMap"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.3125, -1.875)
+collision_mask = 0
+
+[node name="entity_13_mesh_instance" type="MeshInstance3D" parent="FuncGodotMap/entity_13_func_detail"]
+mesh = SubResource("ArrayMesh_6vcgy")
+
+[node name="entity_13_collision_shape" type="CollisionShape3D" parent="FuncGodotMap/entity_13_func_detail"]
+shape = SubResource("ConcavePolygonShape3D_4l52g")
+
+[node name="entity_14_func_detail" type="StaticBody3D" parent="FuncGodotMap"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.45833, 4.45833)
+collision_mask = 0
+
+[node name="entity_14_mesh_instance" type="MeshInstance3D" parent="FuncGodotMap/entity_14_func_detail"]
+mesh = SubResource("ArrayMesh_bip6l")
+
+[node name="entity_14_collision_shape" type="CollisionShape3D" parent="FuncGodotMap/entity_14_func_detail"]
+shape = SubResource("ConcavePolygonShape3D_e45hr")
+
+[node name="entity_15_trigger_area" type="Area3D" parent="FuncGodotMap"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.25, 0.75, 6)
+collision_layer = 4
+collision_mask = 4
+monitorable = false
+script = ExtResource("10_70cxx")
+target = "door"
+targetfunc = "mv_reverse"
+
+[node name="entity_15_brush_0_collision_shape" type="CollisionShape3D" parent="FuncGodotMap/entity_15_trigger_area"]
+shape = SubResource("ConvexPolygonShape3D_q36b4")

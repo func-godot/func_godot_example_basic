@@ -1,0 +1,53 @@
+[gd_scene load_steps=4 format=3 uid="uid://bi51vakf1lv8k"]
+
+[ext_resource type="Script" path="res://entities/actors/marsfrog/marsfrog.gd" id="1_qqpyl"]
+[ext_resource type="PackedScene" uid="uid://d3xixlkvn727p" path="res://entities/actors/marsfrog/marsfrog.gltf" id="2_hyhk2"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_ei03m"]
+radius = 0.2
+
+[node name="Marsfrog" type="CharacterBody3D"]
+collision_layer = 6
+collision_mask = 5
+script = ExtResource("1_qqpyl")
+
+[node name="marsfrog" parent="." instance=ExtResource("2_hyhk2")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0.231518, 0)
+
+[node name="Skeleton3D" parent="marsfrog/marsfrog_rig" index="0"]
+bones/0/position = Vector3(0, -0.153277, 0)
+bones/0/rotation = Quaternion(-0.199192, 1.11508e-07, -1.30309e-08, 0.979961)
+bones/1/rotation = Quaternion(-0.0114078, -0.175414, 0.98316, -0.049959)
+bones/1/scale = Vector3(1, 1, 1)
+bones/2/rotation = Quaternion(-0.083512, 0.00140237, -0.0392364, 0.995733)
+bones/2/scale = Vector3(1, 1, 0.999999)
+bones/3/rotation = Quaternion(0.374285, 0.000603019, -0.010072, 0.927259)
+bones/3/scale = Vector3(1, 1, 1)
+bones/4/position = Vector3(-3.59793e-15, 0.167652, 1.88662e-08)
+bones/4/rotation = Quaternion(0.843623, 6.38696e-08, 3.01615e-07, 0.536936)
+bones/4/scale = Vector3(1, 1, 1)
+bones/5/position = Vector3(-7.40195e-15, 0.167652, 9.43323e-09)
+bones/5/rotation = Quaternion(0.829082, 6.65173e-08, 2.96411e-07, 0.559128)
+bones/6/rotation = Quaternion(0.144355, -7.45882e-05, 0.000124829, 0.989526)
+bones/6/scale = Vector3(1, 1, 1)
+bones/7/rotation = Quaternion(0.286167, -4.05175e-05, 0.000194118, 0.95818)
+bones/7/scale = Vector3(1, 1, 1)
+bones/8/rotation = Quaternion(0.328952, -1.93985e-05, 0.000168282, 0.944347)
+bones/8/scale = Vector3(1, 1, 1)
+bones/9/rotation = Quaternion(0.178414, -3.78559e-06, 6.672e-05, 0.983956)
+bones/9/scale = Vector3(1, 1, 1)
+bones/10/rotation = Quaternion(0.0395795, -0.017135, 0.00304232, 0.999065)
+bones/11/rotation = Quaternion(0.0114077, -0.175415, 0.98316, 0.0499587)
+bones/11/scale = Vector3(1, 1, 1)
+bones/12/rotation = Quaternion(-0.0835107, -0.00140246, 0.0392358, 0.995733)
+bones/12/scale = Vector3(1, 1, 1)
+bones/13/rotation = Quaternion(0.374284, -0.000602727, 0.0100723, 0.927259)
+
+[node name="AnimationPlayer" parent="marsfrog" index="1"]
+autoplay = "stand"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.2, 0)
+shape = SubResource("SphereShape3D_ei03m")
+
+[editable path="marsfrog"]
