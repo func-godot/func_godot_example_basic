@@ -25,9 +25,11 @@ map_formats = Array[Dictionary]([{
 }, {
 "format": "Quake3"
 }])
+textures_root_folder = "textures"
 texture_exclusion_patterns = Array[String](["*_albedo", "*_ao", "*_emission", "*_height", "*_metallic", "*_normal", "*_orm", "*_roughness", "*_sss"])
 fgd_file = ExtResource("5_437bd")
 entity_scale = "32"
-default_uv_scale = Vector2(1, 1)
 brush_tags = Array[Resource]([ExtResource("1_kwmkr"), ExtResource("2_aoq2g")])
 brushface_tags = Array[Resource]([ExtResource("1_ujsxt"), ExtResource("2_rcvc4")])
+default_uv_scale = Vector2(1, 1)
+game_config_version = 0
