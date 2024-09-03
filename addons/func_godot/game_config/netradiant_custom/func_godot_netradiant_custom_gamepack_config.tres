@@ -19,5 +19,3 @@ sound_types = PackedStringArray("wav", "ogg")
 default_scale = "1.0"
 clip_texture = "textures/special/clip"
 skip_texture = "textures/special/skip"
-default_build_menu_variables = {}
-default_build_menu_commands = {}
