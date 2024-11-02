@@ -1,10 +1,15 @@
 @icon("res://addons/func_godot/icons/icon_godot_ranger.svg")
+@tool
 ## Reusable map settings configuration for [FuncGodotMap] nodes.
 class_name FuncGodotMapSettings
 extends Resource
 
 ## Ratio between map editor units and Godot units. FuncGodot will divide brush coordinates by this number when building. This does not affect entity properties unless scripted to do so.
-@export var inverse_scale_factor: float = 32.0
+var scale_factor: float = 0.03125
+@export var inverse_scale_factor: float = 32.0 :
+	set(value):
+		inverse_scale_factor = value
+		scale_factor = 1.0 / value
 
 ## [FuncGodotFGDFile] that translates map file classnames into Godot nodes and packed scenes.
 @export var entity_fgd: FuncGodotFGDFile = preload("res://addons/func_godot/fgd/func_godot_fgd.tres")
@@ -22,11 +27,14 @@ extends Resource
 ## File extensions to search for texture data.
 @export var texture_file_extensions: Array[String] = ["png", "jpg", "jpeg", "bmp", "tga", "webp"]
 
-## Optional path for the clip texture, relative to [member base_texture_dir]. Brush faces textured with the clip texture will have those Faces removed from the generated [MeshInstance3D] but not the generated [CollisionShape3D].
+## Optional path for the clip texture, relative to [member base_texture_dir]. Brush faces textured with the clip texture will have those faces removed from the generated [MeshInstance3D] but not the generated [CollisionShape3D].
 @export var clip_texture: String = "special/clip"
 
-## Optional path for the skip texture, relative to [member base_texture_dir]. Brush faces textured with the skip texture will have those Faces removed from the generated [MeshInstance3D]. If the [FuncGodotFGDSolidClass] `collision_shape_type` is set to concave then it will also remove collision from those faces in the generated [CollisionShape3D].
+## Optional path for the skip texture, relative to [member base_texture_dir]. Brush faces textured with the skip texture will have those faces removed from the generated [MeshInstance3D]. If the [FuncGodotFGDSolidClass] `collision_shape_type` is set to concave then it will also remove collision from those faces in the generated [CollisionShape3D].
 @export var skip_texture: String = "special/skip"
+
+## Optional path for the origin texture, relative to [member base_texture_dir]. Brush faces textured with the origin texture will have those faces removed from the generated [MeshInstance3D]. The bounds of these faces will be used to calculate the origin point of the entity.
+@export var origin_texture: String = "special/origin"
 
 ## Optional [QuakeWADFile] resources to apply textures from. See the [Quake Wiki](https://quakewiki.org/wiki/Texture_Wad) for more information on Quake Texture WADs.
 @export var texture_wads: Array[Resource] = []
@@ -59,9 +67,6 @@ extends Resource
 ## Automatic PBR material generation ORM map pattern
 @export var orm_map_pattern: String = "%s_orm.%s"
 
-## If true, all materials will be unshaded, ignoring light. Also known as "fullbright".
-@export var unshaded: bool = false
-
 ## Save automatically generated materials to disk, allowing reuse across [FuncGodotMap] nodes. [i]NOTE: Materials do not use the Default Material settings after saving.[/i]
 @export var save_generated_materials: bool = true
 
@@ -76,4 +81,5 @@ extends Resource
 
 ## If true, will organize Scene Tree using Trenchbroom Layers and Groups. Layers and Groups will be generated as [Node3D] nodes. 
 ## All structural brushes will be moved out of the Layers and Groups and merged into the Worldspawn entity.
+## Any Layers toggled to be omitted from export in TrenchBroom will not be built.
 @export var use_trenchbroom_groups_hierarchy: bool = false
