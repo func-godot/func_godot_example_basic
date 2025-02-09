@@ -13,6 +13,7 @@ class_properties = {
 "flags": [["Player", 1, 0], ["BIG friend", 2, 0], ["Attentive friend", 4, 0], ["Happy friend", 8, 0]]
 }
 class_property_descriptions = {}
+auto_apply_to_matching_node_properties = false
 meta_properties = {
 "color": Color(0.8, 0, 0, 1),
 "size": AABB(-8, -8, -8, 8, 8, 8)

@@ -22,6 +22,7 @@ class_property_descriptions = {
 "mangle": "Orientation in degrees.",
 "range": "The maximal range that can be reached by the spotlight in Quake Units. The entity script converts this to Godot Units in the LightOmni script."
 }
+auto_apply_to_matching_node_properties = false
 meta_properties = {}
 node_class = "SpotLight3D"
 name_property = ""

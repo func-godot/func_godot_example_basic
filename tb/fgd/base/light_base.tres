@@ -23,6 +23,7 @@ class_property_descriptions = {
 "shadow_bias": "Used to adjust shadow appearance. Too small a value results in self-shadowing, while too large a value causes shadows to separate from casters. Adjust as needed.",
 "shadows": "If true, the light will cast real-time shadows. This has a significant performance cost. Only enable shadow rendering when it makes a noticeable difference in the scene's appearance"
 }
+auto_apply_to_matching_node_properties = false
 meta_properties = {
 "color": Color(0.8, 0.8, 0, 1),
 "size": AABB(-8, -8, -8, 8, 8, 8)

@@ -14,6 +14,7 @@ class_properties = {
 class_property_descriptions = {
 "globalname": "Unique name in the Map Scene. When FuncGodot builds the map, this entity will be renamed to entity_ + globalname. This can be a useful alternative to targetname, especially when trying to reparent generated nodes."
 }
+auto_apply_to_matching_node_properties = false
 meta_properties = {
 "color": Color(0.8, 0.8, 0.8, 1),
 "size": AABB(-8, -8, -8, 8, 8, 8)

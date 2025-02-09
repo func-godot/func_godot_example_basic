@@ -12,6 +12,7 @@ config_version=5
 
 config/name="FuncGodot Example Basic"
 config/description="Example project showing how you might set up a project to use FuncGodot."
+run/main_scene="res://maps/example_basic.tscn"
 config/features=PackedStringArray("4.3", "Forward Plus")
 config/icon="res://icon.svg"
 
@@ -26,6 +27,10 @@ enabled=PackedStringArray("res://addons/func_godot/plugin.cfg")
 [filesystem]
 
 import/blender/enabled=false
+
+[func_godot]
+
+default_map_settings="res://addons/func_godot/func_godot_default_map_settings.tres"
 
 [layer_names]
 

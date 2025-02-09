@@ -18,6 +18,7 @@ class_properties = {
 class_property_descriptions = {
 "range": "The light's radius in Quake Units. The entity script converts this to Godot Units in the LightOmni script."
 }
+auto_apply_to_matching_node_properties = false
 meta_properties = {}
 node_class = "OmniLight3D"
 name_property = ""

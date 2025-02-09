@@ -15,6 +15,7 @@ class_properties = {
 class_property_descriptions = {
 "_phong": "Set to 1 to give the brush entity smooth shading."
 }
+auto_apply_to_matching_node_properties = false
 meta_properties = {
 "color": Color(0.8, 0.8, 0.8, 1),
 "size": AABB(-8, -8, -8, 8, 8, 8)

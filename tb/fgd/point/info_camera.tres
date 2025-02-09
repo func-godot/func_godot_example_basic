@@ -23,6 +23,7 @@ class_property_descriptions = {
 "angles": "Camera orientation.",
 "camera_target": "This camera will actively follow the node with this globalname."
 }
+auto_apply_to_matching_node_properties = false
 meta_properties = {
 "color": Color(0, 0.8, 0.8, 1),
 "size": AABB(-8, -8, -8, 8, 8, 8)

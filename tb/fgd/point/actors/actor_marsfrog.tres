@@ -19,6 +19,7 @@ func_godot_internal = false
 base_classes = Array[Resource]([ExtResource("1_38420")])
 class_properties = {}
 class_property_descriptions = {}
+auto_apply_to_matching_node_properties = false
 meta_properties = {
 "model": "\"models/actor_marsfrog.glb\"",
 "size": AABB(-8, -8, 0, 8, 8, 16)
