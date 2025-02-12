@@ -9,7 +9,7 @@ description = ""
 func_godot_internal = false
 base_classes = Array[Resource]([])
 class_properties = {
-"target": null,
+"target": NodePath(""),
 "targetfunc": ""
 }
 class_property_descriptions = {

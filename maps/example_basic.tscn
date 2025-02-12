@@ -11,19 +11,19 @@
 [ext_resource type="Texture2D" uid="uid://p3musw6m37lw" path="res://tb/textures/mars/mars_cliff0.png" id="9_a7dih"]
 [ext_resource type="Script" path="res://entities/triggers/trigger_area.gd" id="10_70cxx"]
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_uelii"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_g0aub"]
 albedo_texture = ExtResource("9_a7dih")
 metallic_specular = 0.0
 texture_filter = 2
 
-[sub_resource type="ArrayMesh" id="ArrayMesh_uvyts"]
+[sub_resource type="ArrayMesh" id="ArrayMesh_f5ubw"]
 _surfaces = [{
 "aabb": AABB(-2, -1.25, -0.5, 2, 2.5, 1),
 "attribute_data": PackedByteArray("AAAAAAAAwL4AAAAAAACAvQAAgL4AAIC9AACAvgAAwL4AAAA+AADAvgAAgD4AAMC+AACAPgAAgL0AAAA+AACAvQAAAL4AAIC+AAAAvgAAAAAAAIC+AAAAAAAAgL4AAIC+AAAAPgAAgL4AAIA+AACAvgAAgD4AAAAAAAAAPgAAAAAAAAC+AADAvgAAAL4AAIC9AACAvgAAgL0AAIC+AADAvgAAAAAAAMC+AACAPgAAwL4AAIA+AACAvQAAAAAAAIC9"),
 "format": 34359742487,
 "index_count": 36,
 "index_data": PackedByteArray("AAABAAIAAAACAAMABAAFAAYABAAGAAcACAAJAAoACAAKAAsADAANAA4ADAAOAA8AEAARABIAEAASABMAFAAVABYAFAAWABcA"),
-"material": SubResource("StandardMaterial3D_uelii"),
+"material": SubResource("StandardMaterial3D_g0aub"),
 "name": "mars/mars_cliff0",
 "primitive": 3,
 "uv_scale": Vector4(0, 0, 0, 0),
@@ -31,51 +31,51 @@ _surfaces = [{
 "vertex_data": PackedByteArray("AAAAwAAAoD8AAAC/AAAAwAAAoL8AAAC/AAAAAAAAoL8AAAC/AAAAAAAAoD8AAAC/AAAAwAAAoD8AAAC/AAAAwAAAoD8AAAA/AAAAwAAAoL8AAAA/AAAAwAAAoL8AAAC/AAAAAAAAoL8AAAC/AAAAwAAAoL8AAAC/AAAAwAAAoL8AAAA/AAAAAAAAoL8AAAA/AAAAAAAAoD8AAAC/AAAAAAAAoD8AAAA/AAAAwAAAoD8AAAA/AAAAwAAAoD8AAAC/AAAAAAAAoD8AAAC/AAAAAAAAoL8AAAC/AAAAAAAAoL8AAAA/AAAAAAAAoD8AAAA/AAAAwAAAoD8AAAA/AAAAAAAAoD8AAAA/AAAAAAAAoL8AAAA/AAAAwAAAoL8AAAA//////wAA/7//////AAD/v/////8AAP+//////wAA/78AAP9//3//vwAA/3//f/+/AAD/f/9//78AAP9//3//v/9/AAD//////38AAP//////fwAA//////9/AAD//////3////9//7//f////3//v/9/////f/+//3////9//7////9//////////3//////////f/////////9///////9//3////+//3//f////7//f/9/////v/9//3////+/")
 }]
 
-[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_v0w34"]
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_01qy3"]
 data = PackedVector3Array(-2, 1.25, -0.5, -2, -1.25, -0.5, 0, -1.25, -0.5, -2, 1.25, -0.5, 0, -1.25, -0.5, 0, 1.25, -0.5, -2, 1.25, -0.5, -2, 1.25, 0.5, -2, -1.25, 0.5, -2, 1.25, -0.5, -2, -1.25, 0.5, -2, -1.25, -0.5, 0, -1.25, -0.5, -2, -1.25, -0.5, -2, -1.25, 0.5, 0, -1.25, -0.5, -2, -1.25, 0.5, 0, -1.25, 0.5, 0, 1.25, -0.5, 0, 1.25, 0.5, -2, 1.25, 0.5, 0, 1.25, -0.5, -2, 1.25, 0.5, -2, 1.25, -0.5, 0, 1.25, -0.5, 0, -1.25, -0.5, 0, -1.25, 0.5, 0, 1.25, -0.5, 0, -1.25, 0.5, 0, 1.25, 0.5, -2, 1.25, 0.5, 0, 1.25, 0.5, 0, -1.25, 0.5, -2, 1.25, 0.5, 0, -1.25, 0.5, -2, -1.25, 0.5)
 
-[sub_resource type="ArrayMesh" id="ArrayMesh_lrb2r"]
+[sub_resource type="ArrayMesh" id="ArrayMesh_m7gxk"]
 _surfaces = [{
-"aabb": AABB(-1, -1, 0, 2, 2.5, 1),
+"aabb": AABB(-1, -1.25, -0.5, 2, 2.5, 1),
 "attribute_data": PackedByteArray("AACAPgAAwL4AAIA+AACAvQAAAAAAAIC9AAAAAAAAwL4AAAA+AADAvgAAgD4AAMC+AACAPgAAgL0AAAA+AACAvQAAAL4AAAAAAAAAvgAAgD4AAIC+AACAPgAAgL4AAAAAAAAAPgAAAAAAAIA+AAAAAAAAgD4AAIA+AAAAPgAAgD4AAAA+AADAvgAAAD4AAIC9AACAPgAAgL0AAIA+AADAvgAAgL4AAMC+AAAAAAAAwL4AAAAAAACAvQAAgL4AAIC9"),
 "format": 34359742487,
 "index_count": 36,
 "index_data": PackedByteArray("AAABAAIAAAACAAMABAAFAAYABAAGAAcACAAJAAoACAAKAAsADAANAA4ADAAOAA8AEAARABIAEAASABMAFAAVABYAFAAWABcA"),
-"material": SubResource("StandardMaterial3D_uelii"),
+"material": SubResource("StandardMaterial3D_g0aub"),
 "name": "mars/mars_cliff0",
 "primitive": 3,
 "uv_scale": Vector4(0, 0, 0, 0),
 "vertex_count": 24,
-"vertex_data": PackedByteArray("AACAvwAAwD8AAAAAAACAvwAAgL8AAAAAAACAPwAAgL8AAAAAAACAPwAAwD8AAAAAAACAvwAAwD8AAAAAAACAvwAAwD8AAIA/AACAvwAAgL8AAIA/AACAvwAAgL8AAAAAAACAPwAAgL8AAAAAAACAvwAAgL8AAAAAAACAvwAAgL8AAIA/AACAPwAAgL8AAIA/AACAPwAAwD8AAAAAAACAPwAAwD8AAIA/AACAvwAAwD8AAIA/AACAvwAAwD8AAAAAAACAPwAAwD8AAAAAAACAPwAAgL8AAAAAAACAPwAAgL8AAIA/AACAPwAAwD8AAIA/AACAvwAAwD8AAIA/AACAPwAAwD8AAIA/AACAPwAAgL8AAIA/AACAvwAAgL8AAIA//////wAA/7//////AAD/v/////8AAP+//////wAA/78AAP9//3//vwAA/3//f/+/AAD/f/9//78AAP9//3//v/9/AAD//////38AAP//////fwAA//////9/AAD//////3////9//7//f////3//v/9/////f/+//3////9//7////9//3//P////3//f/8/////f/9//z////9//3//P/9//3////+//3//f////7//f/9/////v/9//3////+/")
+"vertex_data": PackedByteArray("AACAvwAAoD8AAAC/AACAvwAAoL8AAAC/AACAPwAAoL8AAAC/AACAPwAAoD8AAAC/AACAvwAAoD8AAAC/AACAvwAAoD8AAAA/AACAvwAAoL8AAAA/AACAvwAAoL8AAAC/AACAPwAAoL8AAAC/AACAvwAAoL8AAAC/AACAvwAAoL8AAAA/AACAPwAAoL8AAAA/AACAPwAAoD8AAAC/AACAPwAAoD8AAAA/AACAvwAAoD8AAAA/AACAvwAAoD8AAAC/AACAPwAAoD8AAAC/AACAPwAAoL8AAAC/AACAPwAAoL8AAAA/AACAPwAAoD8AAAA/AACAvwAAoD8AAAA/AACAPwAAoD8AAAA/AACAPwAAoL8AAAA/AACAvwAAoL8AAAA//////wAA/7//////AAD/v/////8AAP+//////wAA/78AAP9//3//vwAA/3//f/+/AAD/f/9//78AAP9//3//v/9/AAD//////38AAP//////fwAA//////9/AAD//////3////9//7//f////3//v/9/////f/+//3////9//7////9//3//P////3//f/8/////f/9//z////9//3//P/9//3////+//3//f////7//f/9/////v/9//3////+/")
 }]
 
-[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_ue305"]
-data = PackedVector3Array(-1, 1.5, 0, -1, -1, 0, 1, -1, 0, -1, 1.5, 0, 1, -1, 0, 1, 1.5, 0, -1, 1.5, 0, -1, 1.5, 1, -1, -1, 1, -1, 1.5, 0, -1, -1, 1, -1, -1, 0, 1, -1, 0, -1, -1, 0, -1, -1, 1, 1, -1, 0, -1, -1, 1, 1, -1, 1, 1, 1.5, 0, 1, 1.5, 1, -1, 1.5, 1, 1, 1.5, 0, -1, 1.5, 1, -1, 1.5, 0, 1, 1.5, 0, 1, -1, 0, 1, -1, 1, 1, 1.5, 0, 1, -1, 1, 1, 1.5, 1, -1, 1.5, 1, 1, 1.5, 1, 1, -1, 1, -1, 1.5, 1, 1, -1, 1, -1, -1, 1)
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_alw4x"]
+data = PackedVector3Array(-1, 1.25, -0.5, -1, -1.25, -0.5, 1, -1.25, -0.5, -1, 1.25, -0.5, 1, -1.25, -0.5, 1, 1.25, -0.5, -1, 1.25, -0.5, -1, 1.25, 0.5, -1, -1.25, 0.5, -1, 1.25, -0.5, -1, -1.25, 0.5, -1, -1.25, -0.5, 1, -1.25, -0.5, -1, -1.25, -0.5, -1, -1.25, 0.5, 1, -1.25, -0.5, -1, -1.25, 0.5, 1, -1.25, 0.5, 1, 1.25, -0.5, 1, 1.25, 0.5, -1, 1.25, 0.5, 1, 1.25, -0.5, -1, 1.25, 0.5, -1, 1.25, -0.5, 1, 1.25, -0.5, 1, -1.25, -0.5, 1, -1.25, 0.5, 1, 1.25, -0.5, 1, -1.25, 0.5, 1, 1.25, 0.5, -1, 1.25, 0.5, 1, 1.25, 0.5, 1, -1.25, 0.5, -1, 1.25, 0.5, 1, -1.25, 0.5, -1, -1.25, 0.5)
 
-[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_aj3ap"]
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_x03n3"]
 points = PackedVector3Array(-2, 0.75, -0.5, -2, -0.75, -0.5, 2, -0.75, -0.5, 2, 0.75, -0.5, -2, 0.75, 0.5, -2, -0.75, 0.5, 2, -0.75, 0.5, 2, 0.75, 0.5)
 
-[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_5ewf6"]
-points = PackedVector3Array(-2, 0.75, 0.625, -2, -0.75, 0.625, 2, -0.75, 0.625, 2, 0.75, 0.625, -2, 0.75, 1.625, -2, -0.75, 1.625, 2, -0.75, 1.625, 2, 0.75, 1.625)
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_63pq3"]
+points = PackedVector3Array(-2, 0.75, -0.5, -2, -0.75, -0.5, 2, -0.75, -0.5, 2, 0.75, -0.5, -2, 0.75, 0.5, -2, -0.75, 0.5, 2, -0.75, 0.5, 2, 0.75, 0.5)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_rdekm"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1j37g"]
 albedo_texture = ExtResource("5_floj3")
 metallic_specular = 0.0
 texture_filter = 2
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_buowo"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xi8bq"]
 albedo_texture = ExtResource("6_yxgs8")
 metallic_specular = 0.0
 texture_filter = 2
 
-[sub_resource type="ArrayMesh" id="ArrayMesh_8rd8f"]
+[sub_resource type="ArrayMesh" id="ArrayMesh_wsb5s"]
 _surfaces = [{
 "aabb": AABB(-2, -0.75, -2.75, 4, 2.5, 6),
 "attribute_data": PackedByteArray("AACAvwAAAL8AAIC/AAAAPgAAAD8AAAA+AAAAPwAAAL8AAIC/AAAAvwAAAD8AAAC/AAAAPwAAAD4AAIC/AAAAPgAAAL8AAAC/AAAAPwAAAL8AAAA/AAAAPgAAAL8AAAA+"),
 "format": 34359742487,
 "index_count": 18,
 "index_data": PackedByteArray("AAABAAIAAAACAAMABAAFAAYABAAGAAcACAAJAAoACAAKAAsA"),
-"material": SubResource("StandardMaterial3D_rdekm"),
+"material": SubResource("StandardMaterial3D_1j37g"),
 "name": "mars/mars_cave0",
 "primitive": 3,
 "uv_scale": Vector4(0, 0, 0, 0),
@@ -87,7 +87,7 @@ _surfaces = [{
 "format": 34359742487,
 "index_count": 6,
 "index_data": PackedByteArray("AAABAAIAAAACAAMA"),
-"material": SubResource("StandardMaterial3D_buowo"),
+"material": SubResource("StandardMaterial3D_xi8bq"),
 "name": "mars/mars_sand0",
 "primitive": 3,
 "uv_scale": Vector4(0, 0, 0, 0),
@@ -95,41 +95,41 @@ _surfaces = [{
 "vertex_data": PackedByteArray("AAAAQAAAQL8AADDAAAAAQAAAQL8AAFBAAAAAwAAAQL8AAFBAAAAAwAAAQL8AADDA/3////9//7//f////3//v/9/////f/+//3////9//78=")
 }]
 
-[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_o8ufg"]
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_w812f"]
 data = PackedVector3Array(-2, 1.75, -2.75, -2, -0.75, -2.75, -2, -0.75, 3.25, -2, 1.75, -2.75, -2, -0.75, 3.25, -2, 1.75, 3.25, 2, -0.75, -2.75, 2, -0.75, 3.25, -2, -0.75, 3.25, 2, -0.75, -2.75, -2, -0.75, 3.25, -2, -0.75, -2.75, 2, 1.75, -2.75, 2, 1.75, 3.25, 2, -0.75, 3.25, 2, 1.75, -2.75, 2, -0.75, 3.25, 2, -0.75, -2.75, -2, 1.75, -2.75, 2, 1.75, -2.75, 2, -0.75, -2.75, -2, 1.75, -2.75, 2, -0.75, -2.75, -2, -0.75, -2.75)
 
-[sub_resource type="ArrayMesh" id="ArrayMesh_rsfyb"]
+[sub_resource type="ArrayMesh" id="ArrayMesh_j81mp"]
 _surfaces = [{
-"aabb": AABB(-4, -0.75, -2.25, 8, 2.5, 6),
+"aabb": AABB(-4, -0.75, -3, 8, 2.5, 6),
 "attribute_data": PackedByteArray("AAAAPwAAQL8AAAA/AAAAvgAAAEAAAAC+AAAAQAAAQL8AAAC/AAAAvgAAgL8AAAC+AACAvwAAQL8AAAC/AABAvwAAgD8AAAC/AACAPwAAAD4AAIC/AAAAPgAAgL8AAAC/AAAAPwAAQL8AAABAAABAvwAAAEAAAAC+AAAAPwAAAL4AAAA/AABAvwAAgD8AAEC/AACAPwAAAL4AAAA/AAAAvg=="),
 "format": 34359742487,
 "index_count": 30,
 "index_data": PackedByteArray("AAABAAIAAAACAAMABAAFAAYABAAGAAcACAAJAAoACAAKAAsADAANAA4ADAAOAA8AEAARABIAEAASABMA"),
-"material": SubResource("StandardMaterial3D_rdekm"),
+"material": SubResource("StandardMaterial3D_1j37g"),
 "name": "mars/mars_cave0",
 "primitive": 3,
 "uv_scale": Vector4(0, 0, 0, 0),
 "vertex_count": 20,
-"vertex_data": PackedByteArray("AACAwAAA4D8AABDAAACAwAAAQL8AABDAAACAwAAAQL8AAHBAAACAwAAA4D8AAHBAAAAAwAAAQL8AABDAAACAwAAAQL8AABDAAACAwAAA4D8AABDAAAAAwAAA4D8AABDAAACAwAAA4D8AAHBAAACAwAAAQL8AAHBAAACAQAAAQL8AAHBAAACAQAAA4D8AAHBAAACAQAAA4D8AABDAAACAQAAA4D8AAHBAAACAQAAAQL8AAHBAAACAQAAAQL8AABDAAAAAQAAA4D8AABDAAACAQAAA4D8AABDAAACAQAAAQL8AABDAAAAAQAAAQL8AABDA////f/9//z////9//3//P////3//f/8/////f/9//z//f/9/////v/9//3////+//3//f////7//f/9/////v/////8AAP+//////wAA/7//////AAD/v/////8AAP+/AAD/f/9//78AAP9//3//vwAA/3//f/+/AAD/f/9//7//f/9/////v/9//3////+//3//f////7//f/9/////vw==")
+"vertex_data": PackedByteArray("AACAwAAA4D8AAEDAAACAwAAAQL8AAEDAAACAwAAAQL8AAEBAAACAwAAA4D8AAEBAAAAAwAAAQL8AAEDAAACAwAAAQL8AAEDAAACAwAAA4D8AAEDAAAAAwAAA4D8AAEDAAACAwAAA4D8AAEBAAACAwAAAQL8AAEBAAACAQAAAQL8AAEBAAACAQAAA4D8AAEBAAACAQAAA4D8AAEDAAACAQAAA4D8AAEBAAACAQAAAQL8AAEBAAACAQAAAQL8AAEDAAAAAQAAA4D8AAEDAAACAQAAA4D8AAEDAAACAQAAAQL8AAEDAAAAAQAAAQL8AAEDA////f/9//z////9//3//P////3//f/8/////f/9//z//f/9/////v/9//3////+//3//f////7//f/9/////v/////8AAP+//////wAA/7//////AAD/v/////8AAP+/AAD/f/9//78AAP9//3//vwAA/3//f/+/AAD/f/9//7//f/9/////v/9//3////+//3//f////7//f/9/////vw==")
 }, {
-"aabb": AABB(-4, -0.75, -2.25, 8, 1e-05, 6),
+"aabb": AABB(-4, -0.75, -3, 8, 1e-05, 6),
 "attribute_data": PackedByteArray("AAAAvwAAAL8AAIA+AAAAvwAAgD4AAAA/AAAAvwAAAD8="),
 "format": 34359742487,
 "index_count": 6,
 "index_data": PackedByteArray("AAABAAIAAAACAAMA"),
-"material": SubResource("StandardMaterial3D_buowo"),
+"material": SubResource("StandardMaterial3D_xi8bq"),
 "name": "mars/mars_sand0",
 "primitive": 3,
 "uv_scale": Vector4(0, 0, 0, 0),
 "vertex_count": 4,
-"vertex_data": PackedByteArray("AACAQAAAQL8AABDAAACAQAAAQL8AAHBAAACAwAAAQL8AAHBAAACAwAAAQL8AABDA/3////9//7//f////3//v/9/////f/+//3////9//78=")
+"vertex_data": PackedByteArray("AACAQAAAQL8AAEDAAACAQAAAQL8AAEBAAACAwAAAQL8AAEBAAACAwAAAQL8AAEDA/3////9//7//f////3//v/9/////f/+//3////9//78=")
 }]
 
-[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_w3nti"]
-data = PackedVector3Array(-4, 1.75, -2.25, -4, -0.75, -2.25, -4, -0.75, 3.75, -4, 1.75, -2.25, -4, -0.75, 3.75, -4, 1.75, 3.75, -2, -0.75, -2.25, -4, -0.75, -2.25, -4, 1.75, -2.25, -2, -0.75, -2.25, -4, 1.75, -2.25, -2, 1.75, -2.25, 4, -0.75, -2.25, 4, -0.75, 3.75, -4, -0.75, 3.75, 4, -0.75, -2.25, -4, -0.75, 3.75, -4, -0.75, -2.25, -4, 1.75, 3.75, -4, -0.75, 3.75, 4, -0.75, 3.75, -4, 1.75, 3.75, 4, -0.75, 3.75, 4, 1.75, 3.75, 4, 1.75, -2.25, 4, 1.75, 3.75, 4, -0.75, 3.75, 4, 1.75, -2.25, 4, -0.75, 3.75, 4, -0.75, -2.25, 2, 1.75, -2.25, 4, 1.75, -2.25, 4, -0.75, -2.25, 2, 1.75, -2.25, 4, -0.75, -2.25, 2, -0.75, -2.25)
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_lrdob"]
+data = PackedVector3Array(-4, 1.75, -3, -4, -0.75, -3, -4, -0.75, 3, -4, 1.75, -3, -4, -0.75, 3, -4, 1.75, 3, -2, -0.75, -3, -4, -0.75, -3, -4, 1.75, -3, -2, -0.75, -3, -4, 1.75, -3, -2, 1.75, -3, 4, -0.75, -3, 4, -0.75, 3, -4, -0.75, 3, 4, -0.75, -3, -4, -0.75, 3, -4, -0.75, -3, -4, 1.75, 3, -4, -0.75, 3, 4, -0.75, 3, -4, 1.75, 3, 4, -0.75, 3, 4, 1.75, 3, 4, 1.75, -3, 4, 1.75, 3, 4, -0.75, 3, 4, 1.75, -3, 4, -0.75, 3, 4, -0.75, -3, 2, 1.75, -3, 4, 1.75, -3, 4, -0.75, -3, 2, 1.75, -3, 4, -0.75, -3, 2, -0.75, -3)
 
-[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_184r2"]
-points = PackedVector3Array(-2, 0.75, 2.25, -2, -0.75, 2.25, 2, -0.75, 2.25, 2, 0.75, 2.25, -2, 0.75, 3.25, -2, -0.75, 3.25, 2, -0.75, 3.25, 2, 0.75, 3.25)
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_nmas5"]
+points = PackedVector3Array(-2, 0.75, -0.5, -2, -0.75, -0.5, 2, -0.75, -0.5, 2, 0.75, -0.5, -2, 0.75, 0.5, -2, -0.75, 0.5, 2, -0.75, 0.5, 2, 0.75, 0.5)
 
 [node name="map" type="Node"]
 
@@ -170,13 +170,13 @@ move_pos = Array[Vector3]([Vector3(0, 0, 0), Vector3(1, 0, 0)])
 move_rot = Vector3(0, -1.5708, 0)
 
 [node name="entity_5_mesh_instance" type="MeshInstance3D" parent="FuncGodotMap/entity_5_func_move"]
-mesh = SubResource("ArrayMesh_uvyts")
+mesh = SubResource("ArrayMesh_f5ubw")
 
 [node name="entity_5_collision_shape" type="CollisionShape3D" parent="FuncGodotMap/entity_5_func_move"]
-shape = SubResource("ConcavePolygonShape3D_v0w34")
+shape = SubResource("ConcavePolygonShape3D_01qy3")
 
 [node name="entity_6_func_move" type="AnimatableBody3D" parent="FuncGodotMap"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 1.5, 1)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 1.75, 1.5)
 collision_mask = 0
 sync_to_physics = false
 script = ExtResource("8_mgvhw")
@@ -185,10 +185,10 @@ move_pos = Array[Vector3]([Vector3(0, 0, 0), Vector3(-1, 0, 0)])
 move_rot = Vector3(0, 1.5708, 0)
 
 [node name="entity_6_mesh_instance" type="MeshInstance3D" parent="FuncGodotMap/entity_6_func_move"]
-mesh = SubResource("ArrayMesh_lrb2r")
+mesh = SubResource("ArrayMesh_m7gxk")
 
 [node name="entity_6_collision_shape" type="CollisionShape3D" parent="FuncGodotMap/entity_6_func_move"]
-shape = SubResource("ConcavePolygonShape3D_ue305")
+shape = SubResource("ConcavePolygonShape3D_alw4x")
 
 [node name="entity_7_trigger_area" type="Area3D" parent="FuncGodotMap"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.75, 0.5)
@@ -199,7 +199,7 @@ script = ExtResource("10_70cxx")
 target = "door"
 
 [node name="entity_7_brush_0_collision_shape" type="CollisionShape3D" parent="FuncGodotMap/entity_7_trigger_area"]
-shape = SubResource("ConvexPolygonShape3D_aj3ap")
+shape = SubResource("ConvexPolygonShape3D_x03n3")
 
 [node name="entity_8_actor_marsfrog" parent="FuncGodotMap" instance=ExtResource("4_4n4xy")]
 transform = Transform3D(0.707107, 0, 0.707107, 0, 1, 0, -0.707107, 0, 0.707107, 1.75, 0.5, 6.75)
@@ -220,7 +220,7 @@ targetname = "camswap"
 camera_target = NodePath("../entity_player")
 
 [node name="entity_12_trigger_area" type="Area3D" parent="FuncGodotMap"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.75, 1.625)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.75, 2.75)
 collision_layer = 4
 collision_mask = 4
 monitorable = false
@@ -228,30 +228,30 @@ script = ExtResource("10_70cxx")
 target = "camswap"
 
 [node name="entity_12_brush_0_collision_shape" type="CollisionShape3D" parent="FuncGodotMap/entity_12_trigger_area"]
-shape = SubResource("ConvexPolygonShape3D_5ewf6")
+shape = SubResource("ConvexPolygonShape3D_63pq3")
 
 [node name="entity_13_func_detail" type="StaticBody3D" parent="FuncGodotMap"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.25, -1.25)
 collision_mask = 0
 
 [node name="entity_13_mesh_instance" type="MeshInstance3D" parent="FuncGodotMap/entity_13_func_detail"]
-mesh = SubResource("ArrayMesh_8rd8f")
+mesh = SubResource("ArrayMesh_wsb5s")
 
 [node name="entity_13_collision_shape" type="CollisionShape3D" parent="FuncGodotMap/entity_13_func_detail"]
-shape = SubResource("ConcavePolygonShape3D_o8ufg")
+shape = SubResource("ConcavePolygonShape3D_w812f")
 
 [node name="entity_14_func_detail" type="StaticBody3D" parent="FuncGodotMap"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.25, 4.25)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.25, 5)
 collision_mask = 0
 
 [node name="entity_14_mesh_instance" type="MeshInstance3D" parent="FuncGodotMap/entity_14_func_detail"]
-mesh = SubResource("ArrayMesh_rsfyb")
+mesh = SubResource("ArrayMesh_j81mp")
 
 [node name="entity_14_collision_shape" type="CollisionShape3D" parent="FuncGodotMap/entity_14_func_detail"]
-shape = SubResource("ConcavePolygonShape3D_w3nti")
+shape = SubResource("ConcavePolygonShape3D_lrdob")
 
 [node name="entity_15_trigger_area" type="Area3D" parent="FuncGodotMap"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.25, 0.75, 3.25)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.25, 0.75, 6)
 collision_layer = 4
 collision_mask = 4
 monitorable = false
@@ -260,4 +260,4 @@ target = "door"
 targetfunc = "mv_reverse"
 
 [node name="entity_15_brush_0_collision_shape" type="CollisionShape3D" parent="FuncGodotMap/entity_15_trigger_area"]
-shape = SubResource("ConvexPolygonShape3D_184r2")
+shape = SubResource("ConvexPolygonShape3D_nmas5")
