@@ -13,6 +13,7 @@ generate_size_property = false
 generate_gd_ignore_file = false
 scene_file = ExtResource("2_1v41b")
 apply_rotation_on_map_build = true
+apply_scale_on_map_build = true
 classname = "actor_marsfrog"
 description = "Marsfrog"
 func_godot_internal = false

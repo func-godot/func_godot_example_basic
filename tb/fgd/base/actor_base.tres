@@ -10,7 +10,8 @@ description = ""
 func_godot_internal = false
 base_classes = Array[Resource]([ExtResource("1_6pth0")])
 class_properties = {
-"flags": [["Player", 1, 0], ["BIG friend", 2, 0], ["Attentive friend", 4, 0], ["Happy friend", 8, 0]]
+"flags": [["Player", 1, 0], ["BIG friend", 2, 0], ["Attentive friend", 4, 0], ["Happy friend", 8, 0]],
+"scale": 1.0
 }
 class_property_descriptions = {}
 auto_apply_to_matching_node_properties = false
