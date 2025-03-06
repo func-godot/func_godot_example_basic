@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="FuncGodotMapSettings" load_steps=4 format=3 uid="uid://cnci07xmp76ix"]
 
 [ext_resource type="Resource" uid="uid://tt4mj8flifi0" path="res://tb/fgd/fgd_main.tres" id="1_imwqx"]
-[ext_resource type="Script" path="res://addons/func_godot/src/map/func_godot_map_settings.gd" id="1_rg8co"]
+[ext_resource type="Script" uid="uid://bo0f8wgxnro6v" path="res://addons/func_godot/src/map/func_godot_map_settings.gd" id="1_rg8co"]
 [ext_resource type="Material" uid="uid://cvex6toty8yn7" path="res://addons/func_godot/textures/default_material.tres" id="1_wr8ue"]
 
 [resource]

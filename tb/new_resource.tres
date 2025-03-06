@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="FuncGodotFGDSolidClass" load_steps=2 format=3 uid="uid://b2rxbb1i4jfa"]
 
-[ext_resource type="Script" path="res://addons/func_godot/src/fgd/func_godot_fgd_solid_class.gd" id="1_x41k7"]
+[ext_resource type="Script" uid="uid://chcc0nb3js5xi" path="res://addons/func_godot/src/fgd/func_godot_fgd_solid_class.gd" id="1_x41k7"]
 
 [resource]
 script = ExtResource("1_x41k7")

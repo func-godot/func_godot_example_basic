@@ -1,14 +1,15 @@
 [gd_resource type="Resource" script_class="FuncGodotFGDPointClass" load_steps=5 format=3 uid="uid://drhgccbh1koh8"]
 
-[ext_resource type="Script" path="res://addons/func_godot/src/fgd/func_godot_fgd_point_class.gd" id="1_estyx"]
+[ext_resource type="Script" uid="uid://bbj340paxaj4p" path="res://addons/func_godot/src/fgd/func_godot_fgd_point_class.gd" id="1_estyx"]
 [ext_resource type="Resource" uid="uid://cwbnifad3sdgw" path="res://tb/fgd/base/targetname_base.tres" id="1_y4ai7"]
 [ext_resource type="Resource" uid="uid://syvs5beg2j3q" path="res://tb/fgd/base/globalname_base.tres" id="2_bc4l2"]
-[ext_resource type="Script" path="res://entities/info_camera.gd" id="4_y3hfq"]
+[ext_resource type="Script" uid="uid://cm1d60bvyoko4" path="res://entities/info_camera.gd" id="4_y3hfq"]
 
 [resource]
 script = ExtResource("1_estyx")
 script_class = ExtResource("4_y3hfq")
 apply_rotation_on_map_build = true
+apply_scale_on_map_build = true
 classname = "info_camera"
 description = "Info Camera"
 func_godot_internal = false

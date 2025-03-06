@@ -2,8 +2,8 @@
 
 [ext_resource type="Resource" uid="uid://d4buv26pirxbl" path="res://tb/fgd/base/func_base.tres" id="1_0171l"]
 [ext_resource type="Resource" uid="uid://cwbnifad3sdgw" path="res://tb/fgd/base/targetname_base.tres" id="2_obvel"]
-[ext_resource type="Script" path="res://addons/func_godot/src/fgd/func_godot_fgd_solid_class.gd" id="2_td02h"]
-[ext_resource type="Script" path="res://entities/funcs/func_move.gd" id="4_2ymj1"]
+[ext_resource type="Script" uid="uid://chcc0nb3js5xi" path="res://addons/func_godot/src/fgd/func_godot_fgd_solid_class.gd" id="2_td02h"]
+[ext_resource type="Script" uid="uid://drubv8qcibmw0" path="res://entities/funcs/func_move.gd" id="4_2ymj1"]
 
 [resource]
 script = ExtResource("2_td02h")

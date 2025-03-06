@@ -1,15 +1,15 @@
 [gd_scene load_steps=25 format=4 uid="uid://bbhji8qxm5hpx"]
 
-[ext_resource type="Script" path="res://addons/func_godot/src/map/func_godot_map.gd" id="1_123pv"]
+[ext_resource type="Script" uid="uid://cbinx7nthy7uc" path="res://addons/func_godot/src/map/func_godot_map.gd" id="1_123pv"]
 [ext_resource type="Resource" uid="uid://cnci07xmp76ix" path="res://tb/map_settings.tres" id="2_ra3tx"]
 [ext_resource type="PackedScene" uid="uid://bi51vakf1lv8k" path="res://entities/actors/marsfrog/marsfrog.tscn" id="4_4n4xy"]
 [ext_resource type="Texture2D" uid="uid://dhf77ycwlwn8v" path="res://tb/textures/mars/mars_cave0.png" id="5_floj3"]
-[ext_resource type="Script" path="res://entities/info_camera.gd" id="5_m03ov"]
+[ext_resource type="Script" uid="uid://cm1d60bvyoko4" path="res://entities/info_camera.gd" id="5_m03ov"]
 [ext_resource type="Texture2D" uid="uid://nqfowh2e6lpu" path="res://tb/textures/mars/mars_sand0.png" id="6_yxgs8"]
-[ext_resource type="Script" path="res://entities/lights/light_omni.gd" id="7_fuf5a"]
-[ext_resource type="Script" path="res://entities/funcs/func_move.gd" id="8_mgvhw"]
+[ext_resource type="Script" uid="uid://dnv2pepfq32np" path="res://entities/lights/light_omni.gd" id="7_fuf5a"]
+[ext_resource type="Script" uid="uid://drubv8qcibmw0" path="res://entities/funcs/func_move.gd" id="8_mgvhw"]
 [ext_resource type="Texture2D" uid="uid://p3musw6m37lw" path="res://tb/textures/mars/mars_cliff0.png" id="9_a7dih"]
-[ext_resource type="Script" path="res://entities/triggers/trigger_area.gd" id="10_70cxx"]
+[ext_resource type="Script" uid="uid://43spl6muc28v" path="res://entities/triggers/trigger_area.gd" id="10_70cxx"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5qa2v"]
 albedo_texture = ExtResource("9_a7dih")

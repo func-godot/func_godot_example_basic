@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://bi51vakf1lv8k"]
 
-[ext_resource type="Script" path="res://entities/actors/marsfrog/marsfrog.gd" id="1_qqpyl"]
+[ext_resource type="Script" uid="uid://bkua4ygsumdod" path="res://entities/actors/marsfrog/marsfrog.gd" id="1_qqpyl"]
 [ext_resource type="PackedScene" uid="uid://d3xixlkvn727p" path="res://entities/actors/marsfrog/marsfrog.gltf" id="2_hyhk2"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_ei03m"]
