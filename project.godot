@@ -30,7 +30,15 @@ import/blender/enabled=false
 
 [func_godot]
 
-default_map_settings="res://addons/func_godot/func_godot_default_map_settings.tres"
+model_point_class_save_path="fgd/models"
+default_map_settings="uid://cnci07xmp76ix"
+
+[importer_defaults]
+
+animation_library={
+&"fbx/embedded_image_handling": 0,
+&"gltf/embedded_image_handling": 0
+}
 
 [layer_names]
 

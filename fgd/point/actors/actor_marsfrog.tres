@@ -1,0 +1,29 @@
+[gd_resource type="Resource" script_class="FuncGodotFGDModelPointClass" load_steps=4 format=3 uid="uid://c2qu0oxubiqrv"]
+
+[ext_resource type="Resource" uid="uid://3com3yjkcsvg" path="res://fgd/base/actor_base.tres" id="1_08lde"]
+[ext_resource type="PackedScene" uid="uid://bi51vakf1lv8k" path="res://entities/actors/marsfrog/marsfrog.tscn" id="2_cik47"]
+[ext_resource type="Script" uid="uid://ldfqjtq0br35" path="res://addons/func_godot/src/fgd/func_godot_fgd_model_point_class.gd" id="3_afwcu"]
+
+[resource]
+script = ExtResource("3_afwcu")
+target_map_editor = 1
+models_sub_folder = ""
+scale_expression = ""
+generate_size_property = false
+rotation_offset = Vector3(0, 0, 0)
+scene_file = ExtResource("2_cik47")
+apply_rotation_on_map_build = true
+apply_scale_on_map_build = true
+classname = "actor_marsfrog"
+description = "Marsfrog"
+func_godot_internal = false
+base_classes = Array[Resource]([ExtResource("1_08lde")])
+class_properties = {}
+class_property_descriptions = {}
+auto_apply_to_matching_node_properties = false
+meta_properties = {
+"model": "{\"path\": \"fgd/models/actor_marsfrog.glb\", \"scale\": 32 * scale }",
+"size": AABB(-8, -8, 0, 8, 8, 16)
+}
+node_class = ""
+name_property = ""

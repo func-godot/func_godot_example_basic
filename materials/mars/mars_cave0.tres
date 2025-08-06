@@ -1,0 +1,8 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://2vyvj5hqitkv"]
+
+[ext_resource type="Texture2D" uid="uid://dhf77ycwlwn8v" path="res://textures/mars/mars_cave0.png" id="1_tptrf"]
+
+[resource]
+albedo_texture = ExtResource("1_tptrf")
+metallic_specular = 0.0
+texture_filter = 2

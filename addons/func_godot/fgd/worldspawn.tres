@@ -1,15 +1,15 @@
 [gd_resource type="Resource" script_class="FuncGodotFGDSolidClass" load_steps=2 format=3 uid="uid://bdji3873bg32h"]
 
-[ext_resource type="Script" uid="uid://chcc0nb3js5xi" path="res://addons/func_godot/src/fgd/func_godot_fgd_solid_class.gd" id="1_62t8m"]
+[ext_resource type="Script" uid="uid://5cow84q03m6a" path="res://addons/func_godot/src/fgd/func_godot_fgd_solid_class.gd" id="1_62t8m"]
 
 [resource]
 script = ExtResource("1_62t8m")
 spawn_type = 0
-origin_type = 4
+origin_type = 1
 build_visuals = true
 use_in_baked_light = true
 shadow_casting_setting = 1
-build_occlusion = true
+build_occlusion = false
 render_layers = 1
 collision_shape_type = 1
 collision_layer = 1

@@ -1,0 +1,8 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://cty7ngow177eu"]
+
+[ext_resource type="Texture2D" uid="uid://p3musw6m37lw" path="res://textures/mars/mars_cliff0.png" id="1_8bkkq"]
+
+[resource]
+albedo_texture = ExtResource("1_8bkkq")
+metallic_specular = 0.0
+texture_filter = 2

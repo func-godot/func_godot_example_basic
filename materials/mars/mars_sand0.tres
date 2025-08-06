@@ -1,0 +1,8 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://cb3o60n66b13o"]
+
+[ext_resource type="Texture2D" uid="uid://nqfowh2e6lpu" path="res://textures/mars/mars_sand0.png" id="1_idvq4"]
+
+[resource]
+albedo_texture = ExtResource("1_idvq4")
+metallic_specular = 0.0
+texture_filter = 2

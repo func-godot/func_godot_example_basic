@@ -2,11 +2,14 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cma03f8u5ascs"
+uid="uid://byls0u3nbmhwk"
 path.s3tc="res://.godot/imported/marsfrog_alb.png-683f0d2999fb2bd78b55f20f87a979a4.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
+}
+generator_parameters={
+"md5": "694a411562d0cbd5e87cb994a7bc9b8c"
 }
 
 [deps]
