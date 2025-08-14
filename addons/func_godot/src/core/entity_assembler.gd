@@ -66,9 +66,8 @@ func generate_solid_entity_node(node: Node, node_name: String, data: _EntityData
 		mesh_instance.name = node_name + "_mesh_instance"
 		mesh_instance.mesh = data.mesh
 		mesh_instance.gi_mode = GeometryInstance3D.GI_MODE_DISABLED
-		if build_flags & FuncGodotMap.BuildFlags.UNWRAP_UV2:
-			if definition.use_in_baked_light:
-				mesh_instance.gi_mode = MeshInstance3D.GI_MODE_STATIC
+		if definition.global_illumination_mode:
+			mesh_instance.gi_mode = definition.global_illumination_mode
 		mesh_instance.cast_shadow = definition.shadow_casting_setting
 		mesh_instance.layers = definition.render_layers
 		node.add_child(mesh_instance)

@@ -12,36 +12,36 @@
 [ext_resource type="Material" uid="uid://cb3o60n66b13o" path="res://materials/mars/mars_sand0.tres" id="11_yjxsm"]
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_c56gm"]
+lightmap_size_hint = Vector2i(158, 158)
 _surfaces = [{
 "aabb": AABB(-2, -1.25, -0.5, 2, 2.5, 1),
-"attribute_data": PackedByteArray("AACAvgAAgL0AAIC+AADAvgAAAAAAAMC+AAAAAAAAgL0AAAA+AACAvQAAAD4AAMC+AACAPgAAwL4AAIA+AACAvQAAgL4AAAAAAACAvgAAgL4AAAC+AACAvgAAAL4AAAAAAAAAPgAAAAAAAAA+AACAvgAAgD4AAIC+AACAPgAAAAAAAIC+AACAvQAAgL4AAMC+AAAAvgAAwL4AAAC+AACAvQAAAAAAAIC9AAAAAAAAwL4AAIA+AADAvgAAgD4AAIC9"),
-"format": 34359742487,
+"attribute_data": PackedByteArray("AACAvgAAgL3GTVg/A1HpPAAAgL4AAMC+xk1YPxqICj8AAAAAAADAvoX53T4aiAo/AAAAAAAAgL2F+d0+A1HpPAAAAD4AAIC9dWRPO3VkDz8AAAA+AADAvvYMBD91ZA8/AACAPgAAwL72DAQ/W9xEPwAAgD4AAIC9dWRPO1vcRD8AAIC+AAAAAFvcRD94tXg/AACAvgAAgL5b3EQ/dWQPPwAAAL4AAIC+dWQPP3VkDz8AAAC+AAAAAHVkDz94tXg/AAAAPgAAAAC1uEk/dWQPPwAAAD4AAIC+tbhJP3i1eD8AAIA+AACAvpwwfz94tXg/AACAPgAAAACcMH8/dWQPPwAAgL4AAIC9GogKP5wwfz8AAIC+AADAvgNR6TycMH8/AAAAvgAAwL4DUek8tbhJPwAAAL4AAIC9GogKP7W4ST8AAAAAAACAvc9A1D51ZE87AAAAAAAAwL7PQNQ+9gwEPwAAgD4AAMC+dWRPO/YMBD8AAIA+AACAvXVkTzt1ZE87"),
+"format": 34359742519,
 "index_count": 36,
 "index_data": PackedByteArray("AAABAAIAAAACAAMABAAFAAYABAAGAAcACAAJAAoACAAKAAsADAANAA4ADAAOAA8AEAARABIAEAASABMAFAAVABYAFAAWABcA"),
 "material": ExtResource("7_lqt4i"),
-"name": "mars/mars_cliff0",
 "primitive": 3,
 "uv_scale": Vector4(0, 0, 0, 0),
 "vertex_count": 24,
-"vertex_data": PackedByteArray("AAAAAAAAoL8AAAC/AAAAAAAAoD8AAAC/AAAAwAAAoD8AAAC/AAAAwAAAoL8AAAC/AAAAwAAAoL8AAAC/AAAAwAAAoD8AAAC/AAAAwAAAoD8AAAA/AAAAwAAAoL8AAAA/AAAAwAAAoL8AAAA/AAAAAAAAoL8AAAA/AAAAAAAAoL8AAAC/AAAAwAAAoL8AAAC/AAAAwAAAoD8AAAC/AAAAAAAAoD8AAAC/AAAAAAAAoD8AAAA/AAAAwAAAoD8AAAA/AAAAAAAAoL8AAAA/AAAAAAAAoD8AAAA/AAAAAAAAoD8AAAC/AAAAAAAAoL8AAAC/AAAAwAAAoL8AAAA/AAAAwAAAoD8AAAA/AAAAAAAAoD8AAAA/AAAAAAAAoL8AAAA///////9/AID//////z//v///////fwAA/////////98AAP9/////vwAA/3//f/+/AAD/f/9//98AAP9//7//3/9/AAAAAP+//38AAP9//z//fwAA/7////9/AAD/v/+f/3///////7//f////3//v/9/////f//f/3////+//9////9/AAD/v////3//f/8/////f/+///////9//7//n/9//3//f////3//f/+//7//f/9//3////9//3//v/+/")
+"vertex_data": PackedByteArray("AAAAAAAAoL8AAAC/AAAAAAAAoD8AAAC/AAAAwAAAoD8AAAC/AAAAwAAAoL8AAAC/AAAAwAAAoL8AAAC/AAAAwAAAoD8AAAC/AAAAwAAAoD8AAAA/AAAAwAAAoL8AAAA/AAAAwAAAoL8AAAA/AAAAAAAAoL8AAAA/AAAAAAAAoL8AAAC/AAAAwAAAoL8AAAC/AAAAwAAAoD8AAAC/AAAAAAAAoD8AAAC/AAAAAAAAoD8AAAA/AAAAwAAAoD8AAAA/AAAAAAAAoL8AAAA/AAAAAAAAoD8AAAA/AAAAAAAAoD8AAAC/AAAAAAAAoL8AAAC/AAAAwAAAoL8AAAA/AAAAwAAAoD8AAAA/AAAAAAAAoD8AAAA/AAAAAAAAoL8AAAA///////9/AID//////z//v/////8AgAAA/////////98AAACA////vwAAAID/f/+/AAAAgP9//98AAACA/7//3wCAAAAAAP+/AIAAAP9//z8AgAAA/7///wCAAAD/v/+fAID//////78AgP///3//vwCA////f//fAID///+//9///wCAAAD/v///AID/f/8///8AgP+//////wCA/7//n/9//38AgP///3//f/+//7//f/9/AID///9//3//v/+/")
 }]
 
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_lqt4i"]
 data = PackedVector3Array(0, -1.25, -0.5, 0, 1.25, -0.5, -2, 1.25, -0.5, 0, -1.25, -0.5, -2, 1.25, -0.5, -2, -1.25, -0.5, -2, -1.25, -0.5, -2, 1.25, -0.5, -2, 1.25, 0.5, -2, -1.25, -0.5, -2, 1.25, 0.5, -2, -1.25, 0.5, -2, -1.25, 0.5, 0, -1.25, 0.5, 0, -1.25, -0.5, -2, -1.25, 0.5, 0, -1.25, -0.5, -2, -1.25, -0.5, -2, 1.25, -0.5, 0, 1.25, -0.5, 0, 1.25, 0.5, -2, 1.25, -0.5, 0, 1.25, 0.5, -2, 1.25, 0.5, 0, -1.25, 0.5, 0, 1.25, 0.5, 0, 1.25, -0.5, 0, -1.25, 0.5, 0, 1.25, -0.5, 0, -1.25, -0.5, -2, -1.25, 0.5, -2, 1.25, 0.5, 0, 1.25, 0.5, -2, -1.25, 0.5, 0, 1.25, 0.5, 0, -1.25, 0.5)
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_m2jrn"]
+lightmap_size_hint = Vector2i(158, 158)
 _surfaces = [{
 "aabb": AABB(-1, -1.25, -0.5, 2, 2.5, 1),
-"attribute_data": PackedByteArray("AAAAAAAAgL0AAAAAAADAvgAAgD4AAMC+AACAPgAAgL0AAAA+AACAvQAAAD4AAMC+AACAPgAAwL4AAIA+AACAvQAAgL4AAIA+AACAvgAAAAAAAAC+AAAAAAAAAL4AAIA+AAAAPgAAgD4AAAA+AAAAAAAAgD4AAAAAAACAPgAAgD4AAIA+AACAvQAAgD4AAMC+AAAAPgAAwL4AAAA+AACAvQAAgL4AAIC9AACAvgAAwL4AAAAAAADAvgAAAAAAAIC9"),
-"format": 34359742487,
+"attribute_data": PackedByteArray("AAAAAAAAgL3GTVg/A1HpPAAAAAAAAMC+xk1YPxqICj8AAIA+AADAvoX53T4aiAo/AACAPgAAgL2F+d0+A1HpPAAAAD4AAIC9dWRPO3VkDz8AAAA+AADAvvYMBD91ZA8/AACAPgAAwL72DAQ/W9xEPwAAgD4AAIC9dWRPO1vcRD8AAIC+AACAPlvcRD94tXg/AACAvgAAAABb3EQ/dWQPPwAAAL4AAAAAdWQPP3VkDz8AAAC+AACAPnVkDz94tXg/AAAAPgAAgD61uEk/dWQPPwAAAD4AAAAAtbhJP3i1eD8AAIA+AAAAAJwwfz94tXg/AACAPgAAgD6cMH8/dWQPPwAAgD4AAIC9GogKP5wwfz8AAIA+AADAvgNR6TycMH8/AAAAPgAAwL4DUek8tbhJPwAAAD4AAIC9GogKP7W4ST8AAIC+AACAvc9A1D51ZE87AACAvgAAwL7PQNQ+9gwEPwAAAAAAAMC+dWRPO/YMBD8AAAAAAACAvXVkTzt1ZE87"),
+"format": 34359742519,
 "index_count": 36,
 "index_data": PackedByteArray("AAABAAIAAAACAAMABAAFAAYABAAGAAcACAAJAAoACAAKAAsADAANAA4ADAAOAA8AEAARABIAEAASABMAFAAVABYAFAAWABcA"),
 "material": ExtResource("7_lqt4i"),
-"name": "mars/mars_cliff0",
 "primitive": 3,
 "uv_scale": Vector4(0, 0, 0, 0),
 "vertex_count": 24,
-"vertex_data": PackedByteArray("AACAPwAAoL8AAAC/AACAPwAAoD8AAAC/AACAvwAAoD8AAAC/AACAvwAAoL8AAAC/AACAvwAAoL8AAAC/AACAvwAAoD8AAAC/AACAvwAAoD8AAAA/AACAvwAAoL8AAAA/AACAvwAAoL8AAAA/AACAPwAAoL8AAAA/AACAPwAAoL8AAAC/AACAvwAAoL8AAAC/AACAvwAAoD8AAAC/AACAPwAAoD8AAAC/AACAPwAAoD8AAAA/AACAvwAAoD8AAAA/AACAPwAAoL8AAAA/AACAPwAAoD8AAAA/AACAPwAAoD8AAAC/AACAPwAAoL8AAAC/AACAvwAAoL8AAAA/AACAvwAAoD8AAAA/AACAPwAAoD8AAAA/AACAPwAAoL8AAAA///////9/AID//////z//v///////fwAA/////////98AAP9/////vwAA/3//f/+/AAD/f/9//98AAP9//7//3/9/AAAAAP+//38AAP9//z//fwAA/7////9/AAD/v/+f/3///////7//f////3//v/9/////f//f/3////+//9////9/////P////3//////////f/9//5////9//z//3/9//3//f////3//f/+//7//f/9//3////9//3//v/+/")
+"vertex_data": PackedByteArray("AACAPwAAoL8AAAC/AACAPwAAoD8AAAC/AACAvwAAoD8AAAC/AACAvwAAoL8AAAC/AACAvwAAoL8AAAC/AACAvwAAoD8AAAC/AACAvwAAoD8AAAA/AACAvwAAoL8AAAA/AACAvwAAoL8AAAA/AACAPwAAoL8AAAA/AACAPwAAoL8AAAC/AACAvwAAoL8AAAC/AACAvwAAoD8AAAC/AACAPwAAoD8AAAC/AACAPwAAoD8AAAA/AACAvwAAoD8AAAA/AACAPwAAoL8AAAA/AACAPwAAoD8AAAA/AACAPwAAoD8AAAC/AACAPwAAoL8AAAC/AACAvwAAoL8AAAA/AACAvwAAoD8AAAA/AACAPwAAoD8AAAA/AACAPwAAoL8AAAA///////9/AID//////z//v/////8AgAAA/////////98AAACA////vwAAAID/f/+/AAAAgP9//98AAACA/7//3wCAAAAAAP+/AIAAAP9//z8AgAAA/7///wCAAAD/v/+fAID//////78AgP///3//vwCA////f//fAID///+//9///wCA////P///AID///////8AgP9//5///wCA/z//3/9//38AgP///3//f/+//7//f/9/AID///9//3//v/+/")
 }]
 
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_gi1fe"]
@@ -54,60 +54,58 @@ points = PackedVector3Array(2, 0.75, 0.5, 2, -0.75, 0.5, -2, 0.75, 0.5, -2, -0.7
 points = PackedVector3Array(2, 0.75, 0.5, 2, -0.75, 0.5, -2, 0.75, 0.5, -2, -0.75, 0.5, 2, 0.75, -0.5, 2, -0.75, -0.5, -2, 0.75, -0.5, -2, -0.75, -0.5)
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_ap1j4"]
+lightmap_size_hint = Vector2i(298, 278)
 _surfaces = [{
 "aabb": AABB(-2, -0.75, -2.75, 4, 2.5, 6),
-"attribute_data": PackedByteArray("AAAAPwAAAD4AAAA/AAAAvwAAgL8AAAC/AACAvwAAAD4AAIC/AAAAPgAAgL8AAAC/AAAAPwAAAL8AAAA/AAAAPgAAAL8AAAA+AAAAvwAAAL8AAAA/AAAAvwAAAD8AAAA+"),
-"format": 34359742487,
+"attribute_data": PackedByteArray("AAAAPwAAAD7OaDc/IYp/PwAAAD8AAAC/zmg3PxzzND8AAIC/AAAAv8vijD0c8zQ/AACAvwAAAD7L4ow9IYp/PwAAgL8AAAA+qKbjPrO96zoAAIC/AAAAv85oNz+zves6AAAAPwAAAL/OaDc/4y8yPwAAAD8AAAA+qKbjPuMvMj8AAAC/AAAAPpD8OT/HPP0+AAAAvwAAAL8Kkn8/xzz9PgAAAD8AAAC/CpJ/P455+jwAAAA/AAAAPpD8OT+Oefo8"),
+"format": 34359742519,
 "index_count": 18,
 "index_data": PackedByteArray("AAABAAIAAAACAAMABAAFAAYABAAGAAcACAAJAAoACAAKAAsA"),
 "material": ExtResource("10_gi1fe"),
-"name": "mars/mars_cave0",
 "primitive": 3,
 "uv_scale": Vector4(0, 0, 0, 0),
 "vertex_count": 12,
-"vertex_data": PackedByteArray("AAAAwAAAQL8AAFBAAAAAwAAA4D8AAFBAAAAAwAAA4D8AADDAAAAAwAAAQL8AADDAAAAAQAAAQL8AADDAAAAAQAAA4D8AADDAAAAAQAAA4D8AAFBAAAAAQAAAQL8AAFBAAAAAwAAAQL8AADDAAAAAwAAA4D8AADDAAAAAQAAA4D8AADDAAAAAQAAAQL8AADDA////f////z////9//////////3//f/+f////f/8//98AAP9/////vwAA/3//f/+/AAD/f/9//98AAP9//7//3/9//3//f////3//f/+//7//f/9//3////9//3//v/+/")
+"vertex_data": PackedByteArray("AAAAwAAAQL8AAFBAAAAAwAAA4D8AAFBAAAAAwAAA4D8AADDAAAAAwAAAQL8AADDAAAAAQAAAQL8AADDAAAAAQAAA4D8AADDAAAAAQAAA4D8AAFBAAAAAQAAAQL8AAFBAAAAAwAAAQL8AADDAAAAAwAAA4D8AADDAAAAAQAAA4D8AADDAAAAAQAAAQL8AADDA//8AgP///z///wCA////////AID/f/+f//8AgP8//98AAACA////vwAAAID/f/+/AAAAgP9//98AAACA/7//3/9//38AgP///3//f/+//7//f/9/AID///9//3//v/+/")
 }, {
 "aabb": AABB(-2, -0.75, -2.75, 4, 1e-05, 6),
-"attribute_data": PackedByteArray("AAAAvwAAgD4AAAC/AACAvgAAgD4AAIC+AACAPgAAgD4="),
-"format": 34359742487,
+"attribute_data": PackedByteArray("AAAAvwAAgD5i69s6s73rOgAAAL8AAIC+JH/ePrO96zoAAIA+AACAviR/3j7jLzI/AACAPgAAgD5i69s64y8yPw=="),
+"format": 34359742519,
 "index_count": 6,
 "index_data": PackedByteArray("AAABAAIAAAACAAMA"),
 "material": ExtResource("11_yjxsm"),
-"name": "mars/mars_sand0",
 "primitive": 3,
 "uv_scale": Vector4(0, 0, 0, 0),
 "vertex_count": 4,
-"vertex_data": PackedByteArray("AAAAwAAAQL8AADDAAAAAQAAAQL8AADDAAAAAQAAAQL8AAFBAAAAAwAAAQL8AAFBA/3///////7//f////3//v/9/////f//f/3////+//98=")
+"vertex_data": PackedByteArray("AAAAwAAAQL8AADDAAAAAQAAAQL8AADDAAAAAQAAAQL8AAFBAAAAAwAAAQL8AAFBAAID//////78AgP///3//vwCA////f//fAID///+//98=")
 }]
 
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_0ji8b"]
 data = PackedVector3Array(-2, -0.75, 3.25, -2, 1.75, 3.25, -2, 1.75, -2.75, -2, -0.75, 3.25, -2, 1.75, -2.75, -2, -0.75, -2.75, 2, -0.75, -2.75, 2, 1.75, -2.75, 2, 1.75, 3.25, 2, -0.75, -2.75, 2, 1.75, 3.25, 2, -0.75, 3.25, -2, -0.75, -2.75, -2, 1.75, -2.75, 2, 1.75, -2.75, -2, -0.75, -2.75, 2, 1.75, -2.75, 2, -0.75, -2.75, -2, -0.75, -2.75, 2, -0.75, -2.75, 2, -0.75, 3.25, -2, -0.75, -2.75, 2, -0.75, 3.25, -2, -0.75, 3.25)
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_lkw1o"]
+lightmap_size_hint = Vector2i(362, 362)
 _surfaces = [{
 "aabb": AABB(-4, -0.75, -3, 8, 2.5, 6),
-"attribute_data": PackedByteArray("AAAAQAAAAL4AAABAAABAvwAAAD8AAEC/AAAAPwAAAL4AAIC/AAAAvgAAgL8AAEC/AAAAvwAAQL8AAAC/AAAAvgAAgL8AAAA+AACAvwAAAL8AAIA/AAAAvwAAgD8AAAA+AAAAPwAAAL4AAAA/AABAvwAAAEAAAEC/AAAAQAAAAL4AAAA/AAAAvgAAAD8AAEC/AACAPwAAQL8AAIA/AAAAvg=="),
-"format": 34359742487,
+"attribute_data": PackedByteArray("AAAAQAAAAL7pzxk/e6V/PwAAAEAAAEC/6c8ZP1ldRj8AAAA/AABAv5Wbij1ZXUY/AAAAPwAAAL6Vm4o9e6V/PwAAgL8AAAC+LP15P0HKDT8AAIC/AABAvyz9eT9jEkc/AAAAvwAAQL+oBUw/YxJHPwAAAL8AAAC+qAVMP0HKDT8AAIC/AAAAPq/0Zz0Z9go/AACAvwAAAL+v9Gc9Oz5EPwAAgD8AAAC/Oz5EPzs+RD8AAIA/AAAAPjs+RD8Z9go/AAAAPwAAAL5ZXUY/I6tLPAAAAD8AAEC/e6V/PyOrSzwAAABAAABAv3ulfz8jqws/AAAAQAAAAL5ZXUY/I6sLPwAAAD8AAAC+CrVAP4ExST8AAAA/AABAvyz9eT+BMUk/AACAPwAAQL8s/Xk/BCl3PwAAgD8AAAC+CrVAPwQpdz8="),
+"format": 34359742519,
 "index_count": 30,
 "index_data": PackedByteArray("AAABAAIAAAACAAMABAAFAAYABAAGAAcACAAJAAoACAAKAAsADAANAA4ADAAOAA8AEAARABIAEAASABMA"),
 "material": ExtResource("10_gi1fe"),
-"name": "mars/mars_cave0",
 "primitive": 3,
 "uv_scale": Vector4(0, 0, 0, 0),
 "vertex_count": 20,
-"vertex_data": PackedByteArray("AACAwAAAQL8AAEBAAACAwAAA4D8AAEBAAACAwAAA4D8AAEDAAACAwAAAQL8AAEDAAACAwAAAQL8AAEDAAACAwAAA4D8AAEDAAAAAwAAA4D8AAEDAAAAAwAAAQL8AAEDAAACAQAAAQL8AAEBAAACAQAAA4D8AAEBAAACAwAAA4D8AAEBAAACAwAAAQL8AAEBAAACAQAAAQL8AAEDAAACAQAAA4D8AAEDAAACAQAAA4D8AAEBAAACAQAAAQL8AAEBAAAAAQAAAQL8AAEDAAAAAQAAA4D8AAEDAAACAQAAA4D8AAEDAAACAQAAAQL8AAEDA////f////z////9//////////3//f/+f////f/8//9//f/9//3////9//3//v/+//3//f/9/////f/9//7//v///////fwCA//////8//7///////38AAP/////////fAAD/f////78AAP9//3//vwAA/3//f//fAAD/f/+//9//f/9//3////9//3//v/+//3//f/9/////f/9//7//vw==")
+"vertex_data": PackedByteArray("AACAwAAAQL8AAEBAAACAwAAA4D8AAEBAAACAwAAA4D8AAEDAAACAwAAAQL8AAEDAAACAwAAAQL8AAEDAAACAwAAA4D8AAEDAAAAAwAAA4D8AAEDAAAAAwAAAQL8AAEDAAACAQAAAQL8AAEBAAACAQAAA4D8AAEBAAACAwAAA4D8AAEBAAACAwAAAQL8AAEBAAACAQAAAQL8AAEDAAACAQAAA4D8AAEDAAACAQAAA4D8AAEBAAACAQAAAQL8AAEBAAAAAQAAAQL8AAEDAAAAAQAAA4D8AAEDAAACAQAAA4D8AAEDAAACAQAAAQL8AAEDA//8AgP///z///wCA////////AID/f/+f//8AgP8//9//f/9/AID///9//3//v/+//3//fwCA////f/9//7//v///////fwCA//////8//7//////AIAAAP/////////fAAAAgP///78AAACA/3//vwAAAID/f//fAAAAgP+//9//f/9/AID///9//3//v/+//3//fwCA////f/9//7//vw==")
 }, {
 "aabb": AABB(-4, -0.75, -3, 8, 1e-05, 6),
-"attribute_data": PackedByteArray("AAAAvwAAAD8AAAC/AAAAvwAAgD4AAAC/AACAPgAAAD8="),
-"format": 34359742487,
+"attribute_data": PackedByteArray("AAAAvwAAAD/nCbU65wm1OgAAAL8AAAC/dRk2P+cJtToAAIA+AAAAv3UZNj/81gg/AACAPgAAAD/nCbU6/NYIPw=="),
+"format": 34359742519,
 "index_count": 6,
 "index_data": PackedByteArray("AAABAAIAAAACAAMA"),
 "material": ExtResource("11_yjxsm"),
-"name": "mars/mars_sand0",
 "primitive": 3,
 "uv_scale": Vector4(0, 0, 0, 0),
 "vertex_count": 4,
-"vertex_data": PackedByteArray("AACAwAAAQL8AAEDAAACAQAAAQL8AAEDAAACAQAAAQL8AAEBAAACAwAAAQL8AAEBA/3///////7//f////3//v/9/////f//f/3////+//98=")
+"vertex_data": PackedByteArray("AACAwAAAQL8AAEDAAACAQAAAQL8AAEDAAACAQAAAQL8AAEBAAACAwAAAQL8AAEBAAID//////78AgP///3//vwCA////f//fAID///+//98=")
 }]
 
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_xar84"]
@@ -122,6 +120,7 @@ points = PackedVector3Array(2, 0.75, 0.5, 2, -0.75, 0.5, -2, 0.75, 0.5, -2, -0.7
 script = ExtResource("1_123pv")
 local_map_file = "uid://d3s66658slppk"
 map_settings = ExtResource("2_ra3tx")
+build_flags = 1
 
 [node name="entity_0_worldspawn" type="StaticBody3D" parent="FuncGodotMap"]
 
@@ -155,7 +154,6 @@ move_pos = Array[Vector3]([Vector3(0, 0, 0), Vector3(1, 0, 0)])
 move_rot = Vector3(0, -1.5708, 0)
 
 [node name="entity_5_mesh_instance" type="MeshInstance3D" parent="FuncGodotMap/entity_5_func_move"]
-gi_mode = 0
 mesh = SubResource("ArrayMesh_c56gm")
 
 [node name="entity_5_collision_shape" type="CollisionShape3D" parent="FuncGodotMap/entity_5_func_move"]
@@ -171,7 +169,6 @@ move_pos = Array[Vector3]([Vector3(0, 0, 0), Vector3(-1, 0, 0)])
 move_rot = Vector3(0, 1.5708, 0)
 
 [node name="entity_6_mesh_instance" type="MeshInstance3D" parent="FuncGodotMap/entity_6_func_move"]
-gi_mode = 0
 mesh = SubResource("ArrayMesh_m2jrn")
 
 [node name="entity_6_collision_shape" type="CollisionShape3D" parent="FuncGodotMap/entity_6_func_move"]
@@ -222,7 +219,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.25, -1.25)
 collision_mask = 0
 
 [node name="entity_13_mesh_instance" type="MeshInstance3D" parent="FuncGodotMap/entity_13_func_detail"]
-gi_mode = 0
 mesh = SubResource("ArrayMesh_ap1j4")
 
 [node name="entity_13_collision_shape" type="CollisionShape3D" parent="FuncGodotMap/entity_13_func_detail"]
@@ -233,7 +229,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.25, 5)
 collision_mask = 0
 
 [node name="entity_14_mesh_instance" type="MeshInstance3D" parent="FuncGodotMap/entity_14_func_detail"]
-gi_mode = 0
 mesh = SubResource("ArrayMesh_lkw1o")
 
 [node name="entity_14_collision_shape" type="CollisionShape3D" parent="FuncGodotMap/entity_14_func_detail"]
