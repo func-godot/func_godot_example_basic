@@ -150,7 +150,6 @@ collision_mask = 0
 sync_to_physics = false
 script = ExtResource("8_mgvhw")
 targetname = "door"
-move_pos = Array[Vector3]([Vector3(0, 0, 0), Vector3(1, 0, 0)])
 move_rot = Vector3(0, -1.5708, 0)
 
 [node name="entity_5_mesh_instance" type="MeshInstance3D" parent="FuncGodotMap/entity_5_func_move"]

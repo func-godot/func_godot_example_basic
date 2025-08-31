@@ -12,6 +12,7 @@ config_version=5
 
 config/name="FuncGodot Example Basic"
 config/description="Example project showing how you might set up a project to use FuncGodot."
+config/tags=PackedStringArray("3d", "func_godot")
 run/main_scene="res://maps/example_basic.tscn"
 config/features=PackedStringArray("4.4", "Forward Plus")
 config/icon="res://icon.svg"

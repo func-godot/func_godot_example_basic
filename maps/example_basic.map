@@ -34,7 +34,7 @@
 // entity 5
 {
 "classname" "func_move"
-"move_pos" "0 32 0"
+"move_pos" "0 0 0"
 "targetname" "door"
 "move_rot" "0 -90 0"
 // brush 0

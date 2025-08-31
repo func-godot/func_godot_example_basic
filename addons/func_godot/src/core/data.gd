@@ -148,6 +148,12 @@ class EntityData extends RefCounted:
 	var occluder_instance: OccluderInstance3D = null
 	## True global position of the entity's generated node that the mesh's vertices are offset by during the geometry generation stage.
 	var origin: Vector3 = Vector3.ZERO
+
+	## Checks the entity's FGD resource definition, returning whether the Solid Class has a [MeshInstance3D] built for it.
+	func is_visual() -> bool:
+		return (definition
+				and definition is FuncGodotFGDSolidClass
+				and definition.build_visuals)
 	
 	## Checks the entity's FGD resource definition, returning whether the Solid Class CollisionShapeType is set to Convex.
 	func is_collision_convex() -> bool:
@@ -166,7 +172,7 @@ class EntityData extends RefCounted:
 	## Determines if the entity's mesh should be processed for normal smoothing. 
 	## The smoothing property can be retrieved from [member FuncGodotMapSettings.entity_smoothing_property].
 	func is_smooth_shaded(smoothing_property: String = "_phong") -> bool: 
-		return properties.get(smoothing_property, "0").to_int();
+		return properties.get(smoothing_property, "0").to_int()
   	
 	## Retrieves the entity's smoothing angle to determine if the face should be smoothed. 
 	## The smoothing angle property can be retrieved from [member FuncGodotMapSettings.entity_smoothing_angle_property].

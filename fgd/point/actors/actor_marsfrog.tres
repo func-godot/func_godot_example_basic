@@ -9,7 +9,7 @@ script = ExtResource("3_afwcu")
 target_map_editor = 1
 models_sub_folder = ""
 scale_expression = ""
-generate_size_property = false
+generate_size_property = true
 rotation_offset = Vector3(0, -90, 0)
 scene_file = ExtResource("2_cik47")
 apply_rotation_on_map_build = true
@@ -23,7 +23,7 @@ class_property_descriptions = {}
 auto_apply_to_matching_node_properties = false
 meta_properties = {
 "model": "\"fgd/models/actor_marsfrog.glb\"",
-"size": AABB(-8, -8, 0, 8, 8, 16)
+"size": AABB(-5, -7, 0, 6, 7, 19)
 }
 node_class = ""
 name_property = ""
