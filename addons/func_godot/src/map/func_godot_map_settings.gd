@@ -37,6 +37,10 @@ var scale_factor: float = 0.03125
 ## Any Layers toggled to be omitted from export in TrenchBroom and their child entities and groups will not be built.
 @export var use_groups_hierarchy: bool = false
 
+## Class property that contains the snapping epsilon for generated vertices of [FuncGodotFGDSolidClass] entities. 
+## Utilizing this property can help reduce instances of seams between polygons.
+@export var vertex_merge_distance_property: String = "_vertex_merge_distance"
+
 #endregion
 
 #region TEXTURES

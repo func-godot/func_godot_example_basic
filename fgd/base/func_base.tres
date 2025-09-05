@@ -1,17 +1,17 @@
-[gd_resource type="Resource" script_class="FuncGodotFGDBaseClass" load_steps=3 format=3 uid="uid://d4buv26pirxbl"]
+[gd_resource type="Resource" script_class="FuncGodotFGDBaseClass" load_steps=5 format=3 uid="uid://d4buv26pirxbl"]
 
 [ext_resource type="Resource" uid="uid://syvs5beg2j3q" path="res://fgd/base/globalname_base.tres" id="1_2uqtv"]
+[ext_resource type="Resource" uid="uid://nayxb8n7see2" path="res://addons/func_godot/fgd/phong_base.tres" id="2_7k882"]
 [ext_resource type="Script" uid="uid://ck575aqs1sbrb" path="res://addons/func_godot/src/fgd/func_godot_fgd_base_class.gd" id="2_c360u"]
+[ext_resource type="Resource" uid="uid://doo4ly322b4jc" path="res://addons/func_godot/fgd/vertex_merge_distance_base.tres" id="2_thqup"]
 
 [resource]
 script = ExtResource("2_c360u")
 classname = "Func"
 description = ""
 func_godot_internal = false
-base_classes = Array[Resource]([ExtResource("1_2uqtv")])
-class_properties = {
-"_phong": false
-}
+base_classes = Array[Resource]([ExtResource("1_2uqtv"), ExtResource("2_7k882"), ExtResource("2_thqup")])
+class_properties = {}
 class_property_descriptions = {
 "_phong": "Set to 1 to give the brush entity smooth shading."
 }
