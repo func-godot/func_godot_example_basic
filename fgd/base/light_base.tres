@@ -6,27 +6,22 @@
 [resource]
 script = ExtResource("2_oyf81")
 classname = "Light"
-description = ""
-func_godot_internal = false
 base_classes = Array[Resource]([ExtResource("1_jhrkn")])
-class_properties = {
+class_properties = Dictionary[String, Variant]({
 "color": Color(1, 1, 1, 1),
 "energy": 1.0,
 "indirect_energy": 1.0,
 "shadow_bias": 0.1,
 "shadows": false
-}
-class_property_descriptions = {
+})
+class_property_descriptions = Dictionary[String, Variant]({
 "color": "The light's color.",
 "energy": "The light's strength multiplier. For OmniLight3D and SpotLight3D, changing this value will only change the light color's intensity, not the light's radius.",
 "indirect_energy": "The light's strength multiplier. For OmniLight3D and SpotLight3D, changing this value will only change the light color's intensity, not the light's radius.",
 "shadow_bias": "Used to adjust shadow appearance. Too small a value results in self-shadowing, while too large a value causes shadows to separate from casters. Adjust as needed.",
 "shadows": "If true, the light will cast real-time shadows. This has a significant performance cost. Only enable shadow rendering when it makes a noticeable difference in the scene's appearance"
-}
-auto_apply_to_matching_node_properties = false
-meta_properties = {
+})
+meta_properties = Dictionary[String, Variant]({
 "color": Color(0.8, 0.8, 0, 1),
 "size": AABB(-8, -8, -8, 8, 8, 8)
-}
-node_class = ""
-name_property = ""
+})

@@ -51,14 +51,14 @@ func generate_solid_entity_node(node: Node, node_name: String, data: _EntityData
 				node = ClassDB.instantiate(definition.node_class)
 		else:
 			var script: Script = get_script_by_class_name(definition.node_class)
-			if script is GDScript:
-				node = (script as GDScript).new()
+			if script is Script:
+				node = script.new()
 	else:
 		node = Node3D.new()
 	
 	node.name = node_name
 	node_name = node_name.trim_suffix(definition.classname).trim_suffix("_")
-	var properties: Dictionary = data.properties
+	var properties: Dictionary[String, Variant] = data.properties
 	
 	# Mesh Instance generation
 	if data.mesh:
@@ -95,8 +95,16 @@ func generate_solid_entity_node(node: Node, node_name: String, data: _EntityData
 			node.add_child(occluder_instance)
 			data.occluder_instance = occluder_instance
 		
+		# NOTE: Currently occuring in EntityAssembler until the appropriate method in GeometryGenerator is resolved
+		# For now, smooth entire mesh, then unwrap for lightmap if needed
 		if not (build_flags & FuncGodotMap.BuildFlags.DISABLE_SMOOTHING) and data.is_smooth_shaded(map_settings.entity_smoothing_property):
 			mesh_instance.mesh = FuncGodotUtil.smooth_mesh_by_angle(data.mesh, data.get_smoothing_angle(map_settings.entity_smoothing_angle_property))
+
+			if data.is_gi_enabled() and (build_flags & FuncGodotMap.BuildFlags.UNWRAP_UV2):
+				mesh_instance.mesh.lightmap_unwrap(
+					Transform3D.IDENTITY,
+					map_settings.uv_unwrap_texel_size * map_settings.scale_factor
+				)
 
 	# Collision generation
 	if data.shapes.size() and node is CollisionObject3D:
@@ -131,7 +139,9 @@ func generate_solid_entity_node(node: Node, node_name: String, data: _EntityData
 
 	if "position" in node:
 		if node.position is Vector3:
-			node.position = FuncGodotUtil.id_to_opengl(data.origin) * map_settings.scale_factor
+			node.position = FuncGodotUtil.id_to_opengl(data.origin)
+		elif node.position is Vector2:
+			node.position = Vector2(data.origin.z, -data.origin.y) * map_settings.inverse_scale_factor
 	
 	if not data.mesh_metadata.is_empty():
 		node.set_meta("func_godot_mesh_data", data.mesh_metadata)
@@ -152,8 +162,8 @@ func generate_point_entity_node(node: Node, node_name: String, properties: Dicti
 				node = ClassDB.instantiate(definition.node_class)
 		else:
 			var script: Script = get_script_by_class_name(definition.node_class)
-			if script is GDScript:
-				node = (script as GDScript).new()
+			if script is Script:
+				node = script.new()
 	else:
 		node = Node3D.new()
 	
@@ -164,22 +174,28 @@ func generate_point_entity_node(node: Node, node_name: String, properties: Dicti
 		if "angles" in properties or "mangle" in properties:
 			var key := "angles" if "angles" in properties else "mangle"
 			var angles_raw = properties[key]
-			if not angles_raw is Vector3:
+			if angles_raw is String:
 				angles_raw = angles_raw.split_floats(' ')
-			if angles_raw.size() > 2:
+				if angles_raw.size() < 3:
+					push_error("Invalid vector format for \"" + key + "\" in entity \"" + classname + "\"")
+					angles_raw = null
+			if angles_raw:
 				angles = Vector3(-angles_raw[0], angles_raw[1], -angles_raw[2])
 				if key == "mangle":
 					if definition.classname.begins_with("light"):
 						angles = Vector3(angles_raw[1], angles_raw[0], -angles_raw[2])
 					elif definition.classname == "info_intermission":
 						angles = Vector3(angles_raw[0], angles_raw[1], -angles_raw[2])
-			else:
-				push_error("Invalid vector format for \"" + key + "\" in entity \"" + classname + "\"")
 		elif "angle" in properties:
 			var angle = properties["angle"]
 			if not angle is float:
 				angle = float(angle)
-			angles.y += angle
+			if is_equal_approx(angle, -1):
+				angles.x = 90
+			elif is_equal_approx(angle, -2):
+				angles.x = -90
+			else:
+				angles.y += angle
 		angles.y += 180
 		node.rotation_degrees = angles
 	
@@ -203,11 +219,18 @@ func generate_point_entity_node(node: Node, node_name: String, properties: Dicti
 	
 	if "origin" in properties:
 		var origin_vec: Vector3 = Vector3.ZERO
-		var origin_comps: PackedFloat64Array = properties['origin'].split_floats(' ')
-		if origin_comps.size() > 2:
-			origin_vec = Vector3(origin_comps[1], origin_comps[2], origin_comps[0])
+		var origin_prop = properties['origin']
+		if origin_prop is Vector3:
+			origin_vec = Vector3(origin_prop.y, origin_prop.z, origin_prop.x)
+		elif origin_prop is String:
+			var origin_comps: PackedFloat64Array = properties['origin'].split_floats(' ')
+			if origin_comps.size() > 2:
+				origin_vec = Vector3(origin_comps[1], origin_comps[2], origin_comps[0])
+			else:
+				push_error("Invalid vector format for \"origin\" in " + node_name)
 		else:
 			push_error("Invalid vector format for \"origin\" in " + node_name)
+		
 		if "position" in node:
 			if node.position is Vector3:
 				node.position = origin_vec * map_settings.scale_factor
@@ -220,127 +243,15 @@ func generate_point_entity_node(node: Node, node_name: String, properties: Dicti
 ## based upon the [FuncGodotFGDEntity]'s class properties, then attempts to send those properties to a [code]func_godot_properties[/code] [Dictionary] 
 ## and an [code]_func_godot_apply_properties(properties: Dictionary)[/code] method on the node. A deferred call to [code]_func_godot_build_complete()[/code] is also made.
 func apply_entity_properties(node: Node, data: _EntityData) -> void:
-	var properties: Dictionary = data.properties
+	var properties: Dictionary[String, Variant] = data.properties
 	
 	if data.definition:
 		var def := data.definition
-		for property in properties:
-			var prop_string = properties[property]
-			if property in def.class_properties:
-				var prop_default: Variant = def.class_properties[property]
-				
-				match typeof(prop_default):
-					TYPE_INT:
-						properties[property] = prop_string.to_int()
-					TYPE_FLOAT:
-						properties[property] = prop_string.to_float()
-					TYPE_BOOL:
-						properties[property] = bool(prop_string.to_int())
-					TYPE_VECTOR3:
-						var prop_comps: PackedFloat64Array = prop_string.split_floats(" ")
-						if prop_comps.size() > 2:
-							properties[property] = Vector3(prop_comps[0], prop_comps[1], prop_comps[2])
-						else:
-							push_error("Invalid Vector3 format for \'" + property + "\' in entity \'" + def.classname + "\': " + prop_string)
-							properties[property] = prop_default
-					TYPE_VECTOR3I:
-						var prop_vec: Vector3i = prop_default
-						var prop_comps: PackedStringArray = prop_string.split(" ")
-						if prop_comps.size() > 2:
-							for i in 3:
-								prop_vec[i] = prop_comps[i].to_int()
-						else:
-							push_error("Invalid Vector3i format for \'" + property + "\' in entity \'" + def.classname + "\': " + prop_string)
-						properties[property] = prop_vec
-					TYPE_COLOR:
-						var prop_color: Color = prop_default
-						var prop_comps: PackedStringArray = prop_string.split(" ")
-						if prop_comps.size() > 2:
-							prop_color.r8 = prop_comps[0].to_int()
-							prop_color.g8 = prop_comps[1].to_int()
-							prop_color.b8 = prop_comps[2].to_int()
-							prop_color.a = 1.0
-						else:
-							push_error("Invalid Color format for \'" + property + "\' in entity \'" + def.classname + "\': " + prop_string)
-						properties[property] = prop_color
-					TYPE_DICTIONARY:
-						var prop_desc = def.class_property_descriptions[property]
-						if prop_desc is Array and prop_desc.size() > 1 and prop_desc[1] is int:
-							properties[property] = prop_string.to_int()
-					TYPE_ARRAY:
-						properties[property] = prop_string.to_int()
-					TYPE_VECTOR2:
-						var prop_comps: PackedFloat64Array = prop_string.split_floats(" ")
-						if prop_comps.size() > 1:
-							properties[property] = Vector2(prop_comps[0], prop_comps[1])
-						else:
-							push_error("Invalid Vector2 format for \'" + property + "\' in entity \'" + def.classname + "\': " + prop_string)
-							properties[property] = prop_default
-					TYPE_VECTOR2I:
-						var prop_vec: Vector2i = prop_default
-						var prop_comps: PackedStringArray = prop_string.split(" ")
-						if prop_comps.size() > 1:
-							for i in 2:
-								prop_vec[i] = prop_comps[i].to_int()
-						else:
-							push_error("Invalid Vector2i format for \'" + property + "\' in entity \'" + def.classname + "\': " + prop_string)
-							properties[property] = prop_vec
-					TYPE_VECTOR4:
-						var prop_comps: PackedFloat64Array = prop_string.split_floats(" ")
-						if prop_comps.size() > 3:
-							properties[property] = Vector4(prop_comps[0], prop_comps[1], prop_comps[2], prop_comps[3])
-						else:
-							push_error("Invalid Vector4 format for \'" + property + "\' in entity \'" + def.classname + "\': " + prop_string)
-							properties[property] = prop_default
-					TYPE_VECTOR4I:
-						var prop_vec: Vector4i = prop_default
-						var prop_comps: PackedStringArray = prop_string.split(" ")
-						if prop_comps.size() > 3:
-							for i in 4:
-								prop_vec[i] = prop_comps[i].to_int()
-						else:
-							push_error("Invalid Vector4i format for \'" + property + "\' in entity \'" + def.classname + "\': " + prop_string)
-						properties[property] = prop_vec
-					TYPE_STRING_NAME:
-						properties[property] = StringName(prop_string)
-					TYPE_NODE_PATH:
-						properties[property] = prop_string
-					TYPE_OBJECT:
-						properties[property] = prop_string
-			
-		# Assign properties not defined with defaults from the entity definition
-		for property in def.class_properties:
-			if not property in properties:
-				var prop_default: Variant = def.class_properties[property]
-				# Flags
-				if prop_default is Array:
-					var prop_flags_sum := 0
-					for prop_flag in prop_default:
-						if prop_flag is Array and prop_flag.size() > 2:
-							if prop_flag[2] and prop_flag[1] is int:
-								prop_flags_sum += prop_flag[1]
-					properties[property] = prop_flags_sum
-				# Choices
-				elif prop_default is Dictionary:
-					var prop_desc = def.class_property_descriptions.get(property, "")
-					if prop_desc is Array and prop_desc.size() > 1 and (prop_desc[1] is int or prop_desc[1] is String):
-						properties[property] = prop_desc[1]
-					elif prop_default.size():
-						properties[property] = prop_default[prop_default.keys().front()]
-					else:
-						properties[property] = 0
-				# Materials, Shaders, and Sounds
-				elif prop_default is Resource:
-					properties[property] = prop_default.resource_path
-				# Target Destination and Target Source
-				elif prop_default is NodePath or prop_default is Object or prop_default == null:
-					properties[property] = ""
-				# Everything else
-				else:
-					properties[property] = prop_default
-				
 		if def.auto_apply_to_matching_node_properties:
 			for property in properties:
+				if property == 'scale' and def is FuncGodotFGDPointClass and def.apply_scale_on_map_build:
+					# scale has already been applied
+					continue
 				if property in node:
 					if typeof(node.get(property)) == typeof(properties[property]):
 						node.set(property, properties[property])
@@ -361,42 +272,37 @@ func apply_entity_properties(node: Node, data: _EntityData) -> void:
 func generate_entity_node(entity_data: _EntityData, entity_index: int) -> Node:
 	var node: Node = null
 	var node_name: String = "entity_%s" % entity_index
-	var properties: Dictionary = entity_data.properties
+	var properties: Dictionary[String, Variant] = entity_data.properties
 	var entity_def: FuncGodotFGDEntityClass = entity_data.definition
 	
 	if "classname" in entity_data.properties:
 		var classname: String = properties["classname"]
 	
 	node_name += "_" + properties["classname"]
-	var default_point_def := FuncGodotFGDPointClass.new()
-	var default_solid_def := FuncGodotFGDSolidClass.new()
-	default_solid_def.collision_shape_type = FuncGodotFGDSolidClass.CollisionShapeType.NONE
 	
-	if entity_def:
-		var name_prop: String
-		if entity_def.name_property in properties:
-			name_prop = str(properties[entity_def.name_property])
-		elif map_settings.entity_name_property in properties:
-			name_prop = str(properties[map_settings.entity_name_property])
-		if not name_prop.is_empty():
-			node_name = "entity_" + name_prop
-		
-		if entity_def is FuncGodotFGDSolidClass:
-			node = generate_solid_entity_node(node, node_name, entity_data, entity_def)
-		elif entity_def is FuncGodotFGDPointClass:
-			node = generate_point_entity_node(node, node_name, properties, entity_def)
-		else:
-			push_error("Invalid entity definition for \"" + node_name + "\". Entity definition must be Solid Class or Point Class.")
-			node = generate_point_entity_node(node, node_name, properties, default_point_def)
-		
-		if node and entity_def.script_class:
+	var name_prop: String
+	if entity_def.name_property in properties:
+		name_prop = str(properties[entity_def.name_property])
+	elif map_settings.entity_name_property in properties:
+		name_prop = str(properties[map_settings.entity_name_property])
+	if not name_prop.is_empty():
+		node_name = "entity_" + name_prop
+	
+	if entity_def is FuncGodotFGDSolidClass:
+		node = generate_solid_entity_node(node, node_name, entity_data, entity_def)
+	elif entity_def is FuncGodotFGDPointClass:
+		node = generate_point_entity_node(node, node_name, properties, entity_def)
+	
+	if node:
+		if entity_def.script_class:
 			node.set_script(entity_def.script_class)
-	else:
-		push_error("No entity definition found for \"" + node_name + "\"")
-		if entity_data.brushes.size():
-			node = generate_solid_entity_node(node, node_name, entity_data, default_solid_def)
-		else:
-			node = generate_point_entity_node(node, node_name, properties, default_point_def)
+		
+		var node_groups: Array[String] = map_settings.entity_node_groups.duplicate()
+		node_groups.append_array(entity_def.node_groups)
+		for node_group in node_groups:
+			if node_group.is_empty():
+				continue
+			node.add_to_group(node_group, true)
 	
 	return node
 

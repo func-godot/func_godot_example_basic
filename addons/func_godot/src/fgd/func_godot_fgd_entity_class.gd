@@ -28,24 +28,24 @@ var prefix: String = ""
 
 ## Key value pair properties that will appear in the map editor. After building the [FuncGodotMap] in Godot, these properties will be added to a [Dictionary] 
 ## that gets applied to the generated node, as long as that node is a tool script with an exported `func_godot_properties` Dictionary.
-@export var class_properties : Dictionary = {}
+@export var class_properties : Dictionary[String, Variant] = {}
 
 ## Map editor descriptions for previously defined key value pair properties. Optional but recommended.
-@export var class_property_descriptions : Dictionary = {}
+@export var class_property_descriptions : Dictionary[String, Variant] = {}
 
 ## Automatically applies entity class properties to matching properties in the generated node. 
 ## When using this feature, class properties need to be the correct type or you may run into errors on map build.
 @export var auto_apply_to_matching_node_properties : bool = false
 
 ## Appearance properties for the map editor. See the Valve Developer Wiki and TrenchBroom documentation for more information.
-@export var meta_properties : Dictionary = {
+@export var meta_properties : Dictionary[String, Variant] = {
 	"size": AABB(Vector3(-8, -8, -8), Vector3(8, 8, 8)),
 	"color": Color(0.8, 0.8, 0.8)
 }
 
 @export_group("Node Generation")
 
-## Node to generate on map build. This can be a built-in Godot class, a GDScript class, or a GDExtension class. 
+## Node to generate on map build. This can be a built-in Godot class, a Script class, or a GDExtension class. 
 ## For Point Class entities that use Scene File instantiation leave this blank.
 @export var node_class := ""
 
@@ -53,6 +53,9 @@ var prefix: String = ""
 ## Naming occurs before adding to the [SceneTree] and applying properties.
 ## Nodes will be named `"entity_" + name_property`. An entity's name should be unique, otherwise you may run into unexpected behavior.
 @export var name_property := ""
+
+## Optional array of node groups to add the generated node to.
+@export var node_groups : Array[String] = []
 
 ## Parses the definition and outputs it into the FGD format.
 func build_def_text(target_editor: FuncGodotFGDFile.FuncGodotTargetMapEditors = FuncGodotFGDFile.FuncGodotTargetMapEditors.TRENCHBROOM) -> String:
@@ -231,3 +234,17 @@ func build_def_text(target_editor: FuncGodotFGDFile.FuncGodotTargetMapEditors = 
 	res += "]" + FuncGodotUtil.newline()
 	
 	return res
+
+func retrieve_all_class_properties(properties: Dictionary[String, Variant] = {}) -> Dictionary[String, Variant]:
+	for key in class_properties.keys():
+		properties[key] = class_properties[key]
+	for b in base_classes:
+		properties = b.retrieve_all_class_properties(properties)
+	return properties
+
+func retrieve_all_class_property_descriptions(descriptions: Dictionary[String, Variant] = {}) -> Dictionary[String, Variant]:
+	for key in class_property_descriptions.keys():
+		descriptions[key] = class_property_descriptions[key]
+	for b in base_classes:
+		descriptions = b.retrieve_all_class_property_descriptions(descriptions)
+	return descriptions

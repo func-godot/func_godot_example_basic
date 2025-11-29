@@ -122,7 +122,7 @@ class GroupData extends RefCounted:
 class EntityData extends RefCounted:
 	## All of the entity's key value pairs from the map file, retrieved during parsing. 
 	## The func_godot_properties dictionary generated at the end of entity assembly is derived from this.
-	var properties: Dictionary = {}
+	var properties: Dictionary[String, Variant] = {}
 	## The entity's brush data collected during the parsing stage. If the entity's FGD resource cannot be found, 
 	## the presence of a single brush determines this entity to be a Solid Entity.
 	var brushes: Array[BrushData] = []
@@ -154,6 +154,12 @@ class EntityData extends RefCounted:
 		return (definition
 				and definition is FuncGodotFGDSolidClass
 				and definition.build_visuals)
+
+	func is_gi_enabled() -> bool:
+		return (definition
+				and definition is FuncGodotFGDSolidClass
+				and definition.global_illumination_mode
+		)
 	
 	## Checks the entity's FGD resource definition, returning whether the Solid Class CollisionShapeType is set to Convex.
 	func is_collision_convex() -> bool:
@@ -172,12 +178,12 @@ class EntityData extends RefCounted:
 	## Determines if the entity's mesh should be processed for normal smoothing. 
 	## The smoothing property can be retrieved from [member FuncGodotMapSettings.entity_smoothing_property].
 	func is_smooth_shaded(smoothing_property: String = "_phong") -> bool: 
-		return properties.get(smoothing_property, "0").to_int()
+		return properties.get(smoothing_property, 0)
   	
 	## Retrieves the entity's smoothing angle to determine if the face should be smoothed. 
 	## The smoothing angle property can be retrieved from [member FuncGodotMapSettings.entity_smoothing_angle_property].
 	func get_smoothing_angle(smoothing_angle_property: String = "_phong_angle") -> float:
-		return properties.get(smoothing_angle_property, "89.0").to_float()
+		return properties.get(smoothing_angle_property, 89.0)
 
 class VertexGroupData:
 	## Faces this vertex appears in.

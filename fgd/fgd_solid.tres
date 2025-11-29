@@ -11,7 +11,5 @@
 
 [resource]
 script = ExtResource("7_82tb1")
-target_map_editor = 1
 fgd_name = "SolidFGD"
-base_fgd_files = Array[Resource]([])
 entity_definitions = Array[Resource]([ExtResource("1_bib3t"), ExtResource("1_urecy"), ExtResource("2_bib3t"), ExtResource("3_t6ifc"), ExtResource("4_tg75m"), ExtResource("5_3sm66"), ExtResource("6_gsodn")])

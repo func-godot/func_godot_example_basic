@@ -8,15 +8,4 @@
 [resource]
 script = ExtResource("4_jx0ye")
 classname = "Trigger"
-description = ""
-func_godot_internal = false
 base_classes = Array[Resource]([ExtResource("1_5u3rh"), ExtResource("2_dfx0u"), ExtResource("3_l56ks")])
-class_properties = {}
-class_property_descriptions = {}
-auto_apply_to_matching_node_properties = false
-meta_properties = {
-"color": Color(0.8, 0.8, 0.8, 1),
-"size": AABB(-8, -8, -8, 8, 8, 8)
-}
-node_class = ""
-name_property = ""

@@ -2,6 +2,7 @@
 class_name FuncMove
 extends AnimatableBody3D
 
+@export var func_godot_properties: Dictionary = {}
 @export var targetname: String = ""
 @export var move_pos: Array[Vector3] = [Vector3.ZERO, Vector3.ZERO]
 @export var move_rot: Vector3 = Vector3.ZERO

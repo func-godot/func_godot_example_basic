@@ -80,8 +80,21 @@ const _pbr_textures: PackedInt32Array = [
 	StandardMaterial3D.TEXTURE_EMISSION,
 	StandardMaterial3D.TEXTURE_AMBIENT_OCCLUSION,
 	StandardMaterial3D.TEXTURE_HEIGHTMAP,
-	ORMMaterial3D.TEXTURE_ORM
+	ORMMaterial3D.TEXTURE_ORM,
 	]
+
+# Used during auto-PBR processing. Must match the _pbr_textures order.
+# -1 means the feature is permanantly enabled.
+const _pbr_features: PackedInt32Array = [
+	-1,
+	BaseMaterial3D.FEATURE_NORMAL_MAPPING,
+	-1,
+	-1,
+	BaseMaterial3D.FEATURE_EMISSION,
+	BaseMaterial3D.FEATURE_AMBIENT_OCCLUSION,
+	BaseMaterial3D.FEATURE_HEIGHT_MAPPING,
+	-1,
+]
 
 ## Searches for a Texture2D within the base texture directory or the WAD files added to map settings. 
 ## If not found, a default texture is returned.
@@ -89,7 +102,11 @@ static func load_texture(texture_name: String, wad_resources: Array[QuakeWadFile
 	for texture_file_extension in map_settings.texture_file_extensions:
 		var texture_path: String = map_settings.base_texture_dir.path_join(texture_name + "." + texture_file_extension)
 		if ResourceLoader.exists(texture_path):
-			return load(texture_path)
+			var texture_file = load(texture_path)
+			if texture_file is Texture2D:
+				return texture_file
+			else:
+				printerr("Error: Texture load failed! (%s) not a valid Texture2D resource", texture_path)
 	
 	var texture_name_lower: String = texture_name.to_lower()
 	for wad in wad_resources:
@@ -131,8 +148,8 @@ static func filter_face(texture: String, map_settings: FuncGodotMapSettings) -> 
 static func build_base_material(map_settings: FuncGodotMapSettings, material: BaseMaterial3D, texture: String) -> void:
 	var path: String = map_settings.base_texture_dir.path_join(texture)
 	# Check if there is a subfolder with our PBR textures
-	if DirAccess.open(path.path_join(path)):
-		path = path.path_join(path)
+	if DirAccess.open(path):
+		path = path.path_join(texture)
 	
 	var pbr_suffixes: PackedStringArray = [
 		map_settings.albedo_map_pattern,
@@ -145,12 +162,33 @@ static func build_base_material(map_settings: FuncGodotMapSettings, material: Ba
 		map_settings.orm_map_pattern,
 	]
 	
-	for texture_file_extension in map_settings.texture_file_extensions:
-		for i in pbr_suffixes.size():
-			if not pbr_suffixes[i].is_empty():
-				var pbr: String = pbr_suffixes[i] % [path, texture_file_extension]
-				if ResourceLoader.exists(pbr):
-					material.set_texture(_pbr_textures[i], load(pbr))
+	for i in pbr_suffixes.size():
+		if not pbr_suffixes[i].is_empty():
+			var pbr: String = pbr_suffixes[i]
+			var token: int = pbr.find("%s", 0)
+			if token != -1:
+				if pbr.find("%s", token + 1) != -1:
+					token = 2
+				else:
+					token = 1
+			
+			if token < 1:
+				printerr("No string replacement tokens found in auto-PBR pattern \'" + pbr + "\'! Must have at least one instance of \'%s\' per pattern.")
+				continue
+			
+			if token > 0:
+				for texture_file_extension in map_settings.texture_file_extensions:
+					if token > 1:
+						pbr = pbr_suffixes[i] % [path, texture_file_extension]
+					else:
+						pbr = pbr_suffixes[i] % [path]
+						pbr += "." + texture_file_extension
+					if ResourceLoader.exists(pbr):
+						print(pbr)
+						if _pbr_features[i] > -1:
+							material.set_feature(_pbr_features[i], true)
+						material.set_texture(_pbr_textures[i], load(pbr))
+						break
 
 ## Builds both materials and sizes dictionaries for use in the geometry generation step of the build process. 
 ## Both dictionaries use texture names as keys. The materials dictionary uses [Material] as values, 
@@ -202,7 +240,7 @@ static func build_texture_map(entity_data: Array[FuncGodotData.EntityData], map_
 				
 				# Material generation
 				elif map_settings.default_material:
-					var material = map_settings.default_material.duplicate(true)
+					var material = map_settings.default_material.duplicate(false)
 					var texture: Texture2D = load_texture(texture_name, wad_resources, map_settings)
 					texture_sizes[texture_name] = texture.get_size()
 					
@@ -211,12 +249,29 @@ static func build_texture_map(entity_data: Array[FuncGodotData.EntityData], map_
 						build_base_material(map_settings, material, texture_name)
 					elif material is ShaderMaterial:
 						material.set_shader_parameter(map_settings.default_material_albedo_uniform, texture)
+						var path: String = map_settings.base_texture_dir
+						for uniform in map_settings.shader_material_uniform_map_patterns.keys():
+							if map_settings.shader_material_uniform_map_patterns[uniform].find("%s") < 0:
+								printerr("No string replacement tokens fuond in ShaderMaterial uniform map pattern \'" + map_settings.shader_material_uniform_map_patterns[uniform] + "\'! Must have one instance of \'%s\' per pattern.")
+								continue
+							for texture_file_extension in map_settings.texture_file_extensions:
+								var uniform_texture_path: String = map_settings.shader_material_uniform_map_patterns[uniform] % [texture_name] + "." + texture_file_extension
+								uniform_texture_path = path.path_join(uniform_texture_path)
+								if ResourceLoader.exists(uniform_texture_path):
+									material.set_shader_parameter(uniform, load(uniform_texture_path))
+									break
 					
 					if (map_settings.save_generated_materials and material 
 						and texture_name != map_settings.clip_texture 
 						and texture_name != map_settings.skip_texture 
 						and texture_name != map_settings.origin_texture 
 						and texture.resource_path != default_texture_path):
+						# Make sure our material directory exists
+						var dir := DirAccess.open(material_path.get_base_dir())
+						if not dir:
+							dir = DirAccess.open("res://")
+							dir.make_dir_recursive(material_path.get_base_dir().trim_prefix("res://"))
+						# Save the new material
 						ResourceSaver.save(material, material_path)
 					
 					texture_materials[texture_name] = material
@@ -232,30 +287,30 @@ static func build_texture_map(entity_data: Array[FuncGodotData.EntityData], map_
 ## Returns UV coordinate calculated from the Valve 220 UV format.
 static func get_valve_uv(vertex: Vector3, u_axis: Vector3, v_axis: Vector3, uv_basis := Transform2D.IDENTITY, texture_size := Vector2.ONE) -> Vector2:
 	var uv := Vector2(u_axis.dot(vertex), v_axis.dot(vertex))
-	uv += (uv_basis.origin * uv_basis.get_scale())
-	uv.x /= uv_basis.x.x
-	uv.y /= uv_basis.y.y
+	var scale := Vector2(uv_basis.x.x, uv_basis.y.y)
+	uv += (uv_basis.origin * scale)
+	uv /= scale;
 	uv.x /= texture_size.x
 	uv.y /= texture_size.y
 	return uv
 
 ## Returns UV coordinate calculated from the original id Standard UV format.
-static func get_quake_uv(vertex: Vector3, normal: Vector3, uv_basis := Transform2D.IDENTITY, texture_size := Vector2.ONE) -> Vector2: 
+static func get_quake_uv(vertex: Vector3, normal: Vector3, uv_in := Transform2D.IDENTITY, texture_size := Vector2.ONE) -> Vector2: 
+	var uv_out: Vector2
 	var nx := absf(normal.dot(Vector3.RIGHT))
 	var ny := absf(normal.dot(Vector3.UP))
 	var nz := absf(normal.dot(Vector3.FORWARD))
-	var uv: Vector2
 	
 	if ny >= nx and ny >= nz:
-		uv = Vector2(vertex.x, -vertex.z)
+		uv_out = Vector2(vertex.x, -vertex.z)
 	elif nx >= ny and nx >= nz:
-		uv = Vector2(vertex.y, -vertex.z)
+		uv_out = Vector2(vertex.y, -vertex.z)
 	else:
-		uv = Vector2(vertex.x, vertex.y)
+		uv_out = Vector2(vertex.x, vertex.y)
 	
-	var uv_out := uv.rotated(uv_basis.get_rotation())
-	uv_out /= uv_basis.get_scale()
-	uv_out += uv_basis.origin
+	uv_out = uv_out.rotated(uv_in.get_rotation())
+	uv_out /= uv_in.get_scale()
+	uv_out += uv_in.origin
 	uv_out /= texture_size
 	return uv_out
 
@@ -322,10 +377,10 @@ static func get_face_tangent(face: FuncGodotData.FaceData) -> PackedFloat32Array
 
 #region MESH
 
-static func smooth_mesh_by_angle(mesh: ArrayMesh, angle_deg: float = 89.0) -> Mesh:
+static func smooth_mesh_by_angle(mesh: ArrayMesh, angle_deg: float = 89.0) -> ArrayMesh:
 	if not mesh:
 		push_error("Need a source mesh to smooth")
-		return
+		return null
 	
 	var angle: float = deg_to_rad(clampf(angle_deg, 0.0, 360.0))
 	

@@ -1,33 +1,42 @@
-[gd_resource type="Resource" script_class="FuncGodotFGDPointClass" load_steps=5 format=3 uid="uid://drhgccbh1koh8"]
+[gd_resource type="Resource" script_class="FuncGodotFGDPointClass" load_steps=8 format=3 uid="uid://drhgccbh1koh8"]
 
 [ext_resource type="Resource" uid="uid://cwbnifad3sdgw" path="res://fgd/base/targetname_base.tres" id="1_cwtgh"]
 [ext_resource type="Resource" uid="uid://syvs5beg2j3q" path="res://fgd/base/globalname_base.tres" id="2_xxigy"]
 [ext_resource type="Script" uid="uid://cxsqwtsqd8w33" path="res://addons/func_godot/src/fgd/func_godot_fgd_point_class.gd" id="3_r12kb"]
+[ext_resource type="Script" uid="uid://d1nwwgcrner8b" path="res://addons/func_godot/src/fgd/func_godot_fgd_point_class_display_descriptor.gd" id="3_xxigy"]
 [ext_resource type="Script" uid="uid://cm1d60bvyoko4" path="res://entities/info_camera.gd" id="4_6u0ol"]
+
+[sub_resource type="Resource" id="Resource_r12kb"]
+script = ExtResource("3_xxigy")
+display_asset_path = "\"fgd/models/map_obj_camera_active.glb\""
+conditional = "active == 1"
+metadata/_custom_type_script = "uid://d1nwwgcrner8b"
+
+[sub_resource type="Resource" id="Resource_xxigy"]
+script = ExtResource("3_xxigy")
+display_asset_path = "\"fgd/models/map_obj_camera.glb\""
+metadata/_custom_type_script = "uid://d1nwwgcrner8b"
 
 [resource]
 script = ExtResource("3_r12kb")
 script_class = ExtResource("4_6u0ol")
-apply_rotation_on_map_build = true
-apply_scale_on_map_build = true
+display_descriptors = Array[ExtResource("3_xxigy")]([SubResource("Resource_r12kb"), SubResource("Resource_xxigy")])
 classname = "info_camera"
 description = "Info Camera"
-func_godot_internal = false
 base_classes = Array[Resource]([ExtResource("1_cwtgh"), ExtResource("2_xxigy")])
-class_properties = {
+class_properties = Dictionary[String, Variant]({
 "active": false,
 "angles": Vector3(0, 0, 0),
 "camera_target": ""
-}
-class_property_descriptions = {
+})
+class_property_descriptions = Dictionary[String, Variant]({
 "active": "If activeSets camera's current property. If multiple cameras have active set to true, the viewport will pick the most recent one.",
 "angles": "Camera orientation.",
 "camera_target": "This camera will actively follow the node with this globalname."
-}
-auto_apply_to_matching_node_properties = false
-meta_properties = {
+})
+meta_properties = Dictionary[String, Variant]({
 "color": Color(0, 0.8, 0.8, 1),
+"model": "{{active == 1 -> \"fgd/models/map_obj_camera_active.glb\", active == 0 -> \"fgd/models/map_obj_camera.glb\", \"fgd/models/map_obj_camera.glb\" }}",
 "size": AABB(-8, -8, -8, 8, 8, 8)
-}
+})
 node_class = "Camera3D"
-name_property = ""

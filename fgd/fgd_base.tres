@@ -13,7 +13,5 @@
 
 [resource]
 script = ExtResource("8_idr1e")
-target_map_editor = 1
 fgd_name = "BaseFGD"
-base_fgd_files = Array[Resource]([])
 entity_definitions = Array[Resource]([ExtResource("1_aenro"), ExtResource("8_4ppmx"), ExtResource("1_m1gva"), ExtResource("2_4ppmx"), ExtResource("3_aenro"), ExtResource("4_yqjuy"), ExtResource("5_4ajyw"), ExtResource("6_6cnu1"), ExtResource("7_pja5h")])

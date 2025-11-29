@@ -7,7 +7,5 @@
 
 [resource]
 script = ExtResource("4_l5po5")
-target_map_editor = 1
 fgd_name = "FuncGodotExBasic"
 base_fgd_files = Array[Resource]([ExtResource("1_kf3d4"), ExtResource("2_prdli"), ExtResource("3_ktrhr")])
-entity_definitions = Array[Resource]([])

@@ -8,7 +8,5 @@
 
 [resource]
 script = ExtResource("5_b61ie")
-target_map_editor = 1
 fgd_name = "PointFGD"
-base_fgd_files = Array[Resource]([])
 entity_definitions = Array[Resource]([ExtResource("1_axsde"), ExtResource("2_b6o45"), ExtResource("3_qr6f6"), ExtResource("4_aih72")])

@@ -6,35 +6,18 @@
 
 [resource]
 script = ExtResource("2_hgpko")
-spawn_type = 2
 origin_type = 4
 build_visuals = false
-global_illumination_mode = 1
 use_in_baked_light = false
 shadow_casting_setting = 0
-build_occlusion = false
 render_layers = 0
-collision_shape_type = 1
 collision_layer = 4
 collision_mask = 4
-collision_priority = 1.0
-collision_shape_margin = 0.04
-add_textures_metadata = false
-add_vertex_metadata = false
-add_face_position_metadata = false
-add_face_normal_metadata = false
-add_collision_shape_to_face_indices_metadata = false
-add_collision_shape_face_range_metadata = false
 script_class = ExtResource("3_2bp8b")
 classname = "trigger_area"
 description = "Area node that activates its target group when entered."
-func_godot_internal = false
 base_classes = Array[Resource]([ExtResource("1_swe6f")])
-class_properties = {}
-class_property_descriptions = {}
-auto_apply_to_matching_node_properties = false
-meta_properties = {
+meta_properties = Dictionary[String, Variant]({
 "color": Color(0.8, 0, 0.8, 1)
-}
+})
 node_class = "Area3D"
-name_property = ""

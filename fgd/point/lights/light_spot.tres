@@ -7,23 +7,18 @@
 [resource]
 script = ExtResource("2_exca4")
 script_class = ExtResource("3_k8p0u")
-apply_rotation_on_map_build = true
-apply_scale_on_map_build = true
 classname = "light_spot"
 description = "SpotLight3D entity."
-func_godot_internal = false
 base_classes = Array[Resource]([ExtResource("1_ey4sb")])
-class_properties = {
+class_properties = Dictionary[String, Variant]({
 "angle": 45.0,
 "mangle": Vector3(0, 0, 0),
 "range": 320.0
-}
-class_property_descriptions = {
+})
+class_property_descriptions = Dictionary[String, Variant]({
 "angle": "The spotlight's angle in degrees.",
 "mangle": "Orientation in degrees.",
 "range": "The maximal range that can be reached by the spotlight in Quake Units. The entity script converts this to Godot Units in the LightOmni script."
-}
-auto_apply_to_matching_node_properties = false
-meta_properties = {}
+})
+meta_properties = Dictionary[String, Variant]({})
 node_class = "SpotLight3D"
-name_property = ""
