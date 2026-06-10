@@ -47,15 +47,20 @@ var scale_factor: float = 0.03125
 ## Nodes will be named `"entity_" + name_property`. An entity's name should be unique, otherwise you may run into unexpected behavior.
 @export var entity_name_property: String = ""
 
-## Class property that determines whether the [FuncGodotFGDSolidClass] entity performs mesh smoothing operations.
+## Entity class property that determines whether the [FuncGodotFGDSolidClass] entity performs mesh smoothing operations.
 @export var entity_smoothing_property: String = "_phong"
 
-## Class property that contains the angular threshold that determines when a [FuncGodotFGDSolidClass] entity's mesh vertices are smoothed.
+## Entity class property that contains the angular threshold that determines when a [FuncGodotFGDSolidClass] entity's mesh vertices are smoothed.
 @export var entity_smoothing_angle_property: String = "_phong_angle"
 
-## Class property that contains the snapping epsilon for generated vertices of [FuncGodotFGDSolidClass] entities. 
+## Entity class property that contains the snapping epsilon for generated vertices of [FuncGodotFGDSolidClass] entities. 
 ## Utilizing this property can help reduce instances of seams between polygons.
 @export var vertex_merge_distance_property: String = "_vertex_merge_distance"
+
+## Entity class property that tells whether interior faces should be culled for that brush entity. 
+## Interior faces are faces with matching vertices or are flush within a larger face. 
+## Note that this has a performance impact that scales with how many brushes are in the entity.
+@export var cull_interior_faces_property: String = "_cull_interior_faces"
 
 @export_subgroup("")
 #endregion
@@ -67,7 +72,7 @@ var scale_factor: float = 0.03125
 @export_dir var base_texture_dir: String = "res://textures"
 
 ## File extensions to search for texture data.
-@export var texture_file_extensions: Array[String] = ["png", "jpg", "jpeg", "bmp", "tga", "webp"]
+@export var texture_file_extensions: Array[String] = ["png", "jpg", "jpeg", "bmp", "tga", "webp", "wal"]
 
 @export_subgroup("Hint Textures")
 ## Optional path for the clip texture, relative to [member base_texture_dir]. 

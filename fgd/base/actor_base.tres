@@ -8,6 +8,7 @@ script = ExtResource("2_j2se1")
 classname = "Actor"
 base_classes = Array[Resource]([ExtResource("1_35crd")])
 class_properties = Dictionary[String, Variant]({
+"angle": 0.0,
 "flags": [["Player", 1, 0], ["BIG friend", 2, 0], ["Attentive friend", 4, 0], ["Happy friend", 8, 0]],
 "scale": 1.0
 })

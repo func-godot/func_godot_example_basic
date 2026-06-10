@@ -15,6 +15,7 @@ metadata/_custom_type_script = "uid://d1nwwgcrner8b"
 [sub_resource type="Resource" id="Resource_xxigy"]
 script = ExtResource("3_xxigy")
 display_asset_path = "\"fgd/models/map_obj_camera.glb\""
+conditional = "active == 0"
 metadata/_custom_type_script = "uid://d1nwwgcrner8b"
 
 [resource]
@@ -30,13 +31,13 @@ class_properties = Dictionary[String, Variant]({
 "camera_target": ""
 })
 class_property_descriptions = Dictionary[String, Variant]({
-"active": "If activeSets camera's current property. If multiple cameras have active set to true, the viewport will pick the most recent one.",
+"active": "Sets camera's current property. If multiple cameras have active set to true, the viewport will pick the most recent one.",
 "angles": "Camera orientation.",
 "camera_target": "This camera will actively follow the node with this globalname."
 })
 meta_properties = Dictionary[String, Variant]({
 "color": Color(0, 0.8, 0.8, 1),
-"model": "{{active == 1 -> \"fgd/models/map_obj_camera_active.glb\", active == 0 -> \"fgd/models/map_obj_camera.glb\", \"fgd/models/map_obj_camera.glb\" }}",
+"model": "{{active == 1 -> \"fgd/models/map_obj_camera_active.glb\", active == 0 -> \"fgd/models/map_obj_camera.glb\" }}",
 "size": AABB(-8, -8, -8, 8, 8, 8)
 })
 node_class = "Camera3D"

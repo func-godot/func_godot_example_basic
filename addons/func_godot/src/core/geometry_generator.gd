@@ -307,6 +307,17 @@ func smooth_entity_vertices(entity_index: int) -> void:
 
 #endregion
 
+func get_plane_lookup_key(plane: Plane) -> Vector4i:
+	# I don't think this constant needs to be exposed, but it avoids floating point errors
+	const OCCLUSION_PRECISION := 100.0;
+
+	return Vector4i(
+		int(round(plane.normal.x*OCCLUSION_PRECISION)),
+		int(round(plane.normal.y*OCCLUSION_PRECISION)),
+		int(round(plane.normal.z*OCCLUSION_PRECISION)),
+		int(round(plane.d*OCCLUSION_PRECISION))
+	)
+
 func generate_entity_surfaces(entity_index: int) -> void:
 	var entity: _EntityData = entity_data[entity_index]
 	
@@ -380,13 +391,86 @@ func generate_entity_surfaces(entity_index: int) -> void:
 		
 		# Begin fresh index offset for this subarray
 		var index_offset: int = 0
+		# build lookup table if we're doing cull interior faces
+		var interior_faces_lookup_dict : Dictionary; # [Vector4i, Array[_FaceData]]
+		if entity.properties.get(map_settings.cull_interior_faces_property, false):
+			for face: _FaceData in faces:
+				var vec := get_plane_lookup_key(face.plane)
+				if interior_faces_lookup_dict.has(vec):
+					(interior_faces_lookup_dict[vec] as Array[_FaceData]).push_back(face)
+				else:
+					interior_faces_lookup_dict[vec] = [face]
 		
-		for face in faces:
+		for face: _FaceData in faces:
 			# FACE SCOPE BEGIN
 			
 			# Reject invalid faces
 			if face.vertices.size() < 3 or is_skip(face) or is_origin(face):
 				continue
+			
+			#region Reject interior faces only if desired
+			if entity.properties.get(map_settings.cull_interior_faces_property, false):
+				var remove_face := false
+				# We want to lookup opposite planes
+				var opposite_plane = Plane(face.plane)
+				opposite_plane.d *= -1;
+				opposite_plane.normal *= -1;
+				var vec := get_plane_lookup_key(opposite_plane)
+				var faces_from_lookup = ((interior_faces_lookup_dict.get(vec, [])) as Array[_FaceData]);
+				
+				for face2: _FaceData in faces_from_lookup:
+					if face == face2:
+						continue
+					# Are the planes aligned?
+					if !face2.plane.has_point(face.plane.get_center(), 0.0001):
+						continue
+					# Opposite planes
+					if !(face.plane.normal*-1.0).is_equal_approx(face2.plane.normal):
+						continue;
+
+					# Check for faces that share all their vertices.
+					var all_verts_in_face := true
+					for vert in face.vertices:
+						if !face2.vertices.has(vert):
+							all_verts_in_face = false
+							break;
+					if all_verts_in_face:
+						remove_face = true
+						break
+		
+					# Check if all vertices of Face1 intersect with any triangle of face 2
+					# If they do, then Face 1 is entirely overlapped on Face 2 and we can remove Face 1
+					var all_verts_in_face2 := true
+					for vert in face.vertices:
+						var vert_in_any_tri := false
+						var from := vert - face2.plane.normal*0.001
+						var to := face2.plane.normal*0.001
+						
+						# Loop over all triangles in face 2 and see if the vert intersects any of them
+						for i in ((face2.indices.size()/3)):
+							var intersect = Geometry3D.ray_intersects_triangle(
+								from,
+								to,
+								face2.vertices[face2.indices[i*3]],
+								face2.vertices[face2.indices[i*3 + 1]],
+								face2.vertices[face2.indices[i*3 + 2]]
+							)
+							if !intersect:
+								continue
+							if intersect:
+								vert_in_any_tri = true
+								break;
+						# This vert didn't show up any triangle, can't remove this face
+						if !vert_in_any_tri:
+							all_verts_in_face2 = false
+							break
+					# All verts of face 1 are in face 2, so we can safely remove that face
+					if all_verts_in_face2:
+						remove_face = true
+						break;
+				if remove_face:
+					continue;
+			#endregion
 			
 			# Create trimesh points regardless of texture
 			if build_concave:

@@ -31,8 +31,8 @@ import/blender/enabled=false
 
 [func_godot]
 
-model_point_class_save_path="fgd/models"
 default_map_settings="uid://cnci07xmp76ix"
+model_point_class_save_path="fgd/models"
 
 [importer_defaults]
 

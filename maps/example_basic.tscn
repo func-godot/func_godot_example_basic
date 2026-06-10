@@ -149,17 +149,17 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 1.75, 1.5)
 collision_mask = 0
 sync_to_physics = false
 script = ExtResource("8_mgvhw")
-func_godot_properties = Dictionary[String, Variant]({
+func_godot_properties = {
 "_phong": 0,
 "_phong_angle": 89.0,
-"_vertex_merge_distance": 0.0625,
+"_vertex_merge_distance": 0.03125,
 "classname": "func_move",
 "globalname": "",
 "move_pos": Vector3(0, 0, 0),
 "move_rot": Vector3(0, -90, 0),
 "speed": 3.0,
 "targetname": "door"
-})
+}
 targetname = "door"
 move_rot = Vector3(0, -1.5707964, 0)
 
@@ -174,17 +174,17 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 1.75, 1.5)
 collision_mask = 0
 sync_to_physics = false
 script = ExtResource("8_mgvhw")
-func_godot_properties = Dictionary[String, Variant]({
+func_godot_properties = {
 "_phong": 0,
 "_phong_angle": 89.0,
-"_vertex_merge_distance": 0.0625,
+"_vertex_merge_distance": 0.03125,
 "classname": "func_move",
 "globalname": "",
 "move_pos": Vector3(0, -32, 0),
 "move_rot": Vector3(0, 90, 0),
 "speed": 3.0,
 "targetname": "door"
-})
+}
 targetname = "door"
 move_pos = Array[Vector3]([Vector3(0, 0, 0), Vector3(-1, 0, 0)])
 move_rot = Vector3(0, 1.5707964, 0)
